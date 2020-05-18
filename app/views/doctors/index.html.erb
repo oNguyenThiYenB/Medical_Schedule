@@ -1,0 +1,14 @@
+<% provide :title, t("doctor_list") %>
+<h1><%= t "doctor_list" %></h1>
+<div class="doctor_page">
+  <div class="container">
+    <div class="row">
+      <% if @doctors.present? %>
+        <%= render @doctors %>
+      <% else %>
+        <h4 class="centered red-color"><%= t "no_result" %></h4>
+      <% end %>
+    </div>
+    <%= paginate @doctors %>
+  </div>
+</div>

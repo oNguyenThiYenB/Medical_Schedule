@@ -1,0 +1,12 @@
+<%= provide :title, t("schedule") %>
+<h1 class="centered"><%= t "doctor_schedules" %></h1>
+<div class="time_table_area">
+  <div class="container schedule_display">
+    <div class="row">
+      <div class="col">
+        <%= content_tag "div", id: "calendar", data: {schedule: load_schedule } do %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

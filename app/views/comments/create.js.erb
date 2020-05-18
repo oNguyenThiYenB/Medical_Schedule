@@ -1,0 +1,3 @@
+$('.comment_wraper').prepend('<%= j render "comments/comment", comment: @comment %>');
+$('.comment_form').html('<%= j render "comments/form", commentable: @commentable %>');
+$('#comments').html('<%= t "comment", count: @commentable.comments.size %>');

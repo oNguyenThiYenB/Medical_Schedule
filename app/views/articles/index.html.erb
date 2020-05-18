@@ -1,0 +1,26 @@
+<% provide :title, t("articles") %>
+<div class="breadvroumb_area">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col">
+        <h1><%= t "articles_list" %></h1>
+        <div class="breadcroumb_link">
+          <%= link_to t("home"), root_url %>/<%= link_to t("articles_list"), articles_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="blog_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 order-md-12">
+        <div class="row">
+          <%= render @articles %>
+        </div>
+        <%= paginate @articles %>
+      </div>
+      <%= render "slidebar" %>
+    </div>
+  </div>
+</div>

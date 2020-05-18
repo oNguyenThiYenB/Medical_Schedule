@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= full_title yield(:title) %></title>
+    <%= render "layouts/rails_default" %>
+    <%= render "layouts/shim" %>
+    <!-- <%= stylesheet_link_tag Settings.bs3_css %> -->
+    <%= stylesheet_link_tag Settings.cdnjs %>
+  </head>
+
+  <body>
+    <%= render "layouts/header" %>
+
+    <% if check_auth_controller? %>
+      <%= render "layouts/auth_header" %>
+    <% end %>
+
+    <div>
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
+
+    <%= render "layouts/footer" %>
+  </body>
+  <script type="text/javascript">
+    I18n.defaultLocale = "<%= I18n.default_locale %>";
+    I18n.locale = "<%= I18n.locale %>";
+
+    $(function(){
+        $('.main_menu').slicknav({prependTo: '.menu_bar', 'label' : ''});
+    });
+  </script>
+</html>

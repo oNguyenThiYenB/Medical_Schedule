@@ -1,0 +1,65 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <div class="sidebar">
+    <% if current_user.admin? %>
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <%= image_tag current_user.image, alt: "", class: "img-circle elevation-2" %>
+        </div>
+        <div class="info">
+          <%= link_to current_user.user_name, admin_admin_path(current_user) , class: "d-block" %>
+        </div>
+      </div>
+    <% end %>
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+          <%= link_to admin_admins_path, class: "nav-link" do %>
+            <i class="nav-icon fas fa-book-medical"></i>
+            <p><%= t "admin_list" %></p>
+          <% end %>
+        </li>
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="nav-icon fas fa-users-cog"></i>
+            <p>
+              <%= t "manager_user" %>
+              <i class="fas fa-angle-right right"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item item_list">
+              <%= link_to admin_doctors_path, :class => "nav-link" do %>
+                 <i class="fas fa-user-md nav-icon"></i>
+                <%= t "manager_doctor" %>
+              <% end %>
+            </li>
+            <li class="nav-item item_list">
+              <%= link_to admin_staffs_path , class: "nav-link" do %>
+                <i class="fas fa-user-cog nav-icon"></i>
+                <p><%= t "manager_staff" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item item_list">
+              <%= link_to admin_patients_path, class: "nav-link" do %>
+                <i class="fas fa-user-injured nav-icon"></i>
+                <p><%= t "manager_patient" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+         <li class="nav-item">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="nav-icon fas fa-book-medical"></i>
+            <p><%= t "appointment" %></p>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "#" , class: "nav-link" do %>
+            <i class="nav-icon fas fa-newspaper"></i>
+            <p><%= t "news" %></p>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

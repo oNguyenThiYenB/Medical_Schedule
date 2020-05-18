@@ -1,0 +1,40 @@
+<tr>
+  <td class="centered"><%= numbered params[:page], appointment_counter, Settings.app_pages %></td>
+  <td>
+    <%= link_to appointment.doctor_full_name, doctor_schedules_path(appointment.doctor), data: {turbolinks: "false"} %>
+  </td>
+  <td>
+    <%= link_to appointment.patient_full_name, patient_path(appointment.patient), data: {turbolinks: "false"} %>
+  </td>
+  <td><%= appointment.day %></td>
+  <td><%= I18n.l(appointment.start_time, format: :short) %></td>
+  <td><%= I18n.l(appointment.end_time, format: :short) %></td>
+  <td><%= appointment.doctor_room %></td>
+  <td class="btn_group">
+    <ul>
+      <% if appointment.waiting? %>
+        <li>
+          <%= form_for appointment do |f| %>
+            <%= f.hidden_field :status, value: Appointment.statuses[Settings.accept] %>
+            <%= f.submit t("accept"), class: "btn btn-primary btn-nice" %>
+          <% end %>
+        </li>
+        <li>
+          <%= form_for appointment do |f| %>
+            <%= f.hidden_field :status, value: Appointment.statuses[Settings.cancel] %>
+            <%= f.submit t("cancel"), class: "btn btn-danger btn-nice" %>
+          <% end %>
+        </li>
+      <% elsif appointment.cancel? %>
+        <li><%= t "canceled" %></li>
+      <% else %>
+        <li>
+          <%= form_for appointment do |f| %>
+            <%= f.hidden_field :status, value: Appointment.statuses[Settings.cancel] %>
+            <%= f.submit t("cancel"), class: "btn btn-danger btn-nice" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+</tr>

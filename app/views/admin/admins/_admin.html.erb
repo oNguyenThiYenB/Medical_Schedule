@@ -1,0 +1,12 @@
+<tr>
+  <td class="centered no_content"><%= numbered params[:page], admin_counter, Settings.per_page %></td>
+  <td class="centered fit_content"><%= image_tag admin.display_image, class: "user_avatar" %></td>
+  <td class="address_content"><%= admin.full_name %></td>
+  <td class="address_content"><%= admin.user_name %></td>
+  <td class="address_content"><%= admin.email %></td>
+  <td class="name_content"><%= admin.phone %></td>
+  <td class="centered address_content">
+    <%= link_to t("edit"), edit_admin_admin_path(admin), class: "btn btn-primary btn-size", method: :get %>
+    <%= link_to t("delete"), admin_admin_path(admin), method: :delete, data: {confirm: t("are_you_sure_delete")}, class: "btn btn-danger btn-size" %>
+  </td>
+</tr>

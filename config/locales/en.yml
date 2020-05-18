@@ -1,0 +1,245 @@
+en:
+  time:
+    formats:
+      short: "%H:%M"
+  hello: Hello world
+  hi: Hi
+  active: Activate
+  activated: Account activated!
+  not_activated: Account not activated. Please check your email to activate your account.
+  invalid_link: Invalid activation link
+  check_mail: Please check your email to activate your account.
+  account_activation: Account activation
+  not_received_email: Didn't receive confirmation instructions?
+  active_account: Welcome to the Medical Schedule App! Click on the link below to active your account.
+  reset_pass: Someone has requested a link to change your password. You can do this through the link below.
+  change_pass: Change my password
+  ignore_mail: If you didn't request this, please ignore this email.
+  notice_pass: Your password won't change until you access the link above and create a new one.
+  en: English
+  app_name: Medical Schedule
+  welcome_app: Welcome to our Medical Schedule App!
+  contact: Contact us
+  phone_number: + 8435330333
+  email: yennguyen26101998@gmail.com
+  address: Ha Noi, Viet Nam
+  services: Services link
+  appointment: Appointment
+  doctor: Doctor
+  patient: Patient
+  language: Language
+  home: Home
+  staff_list: Staffs List
+  doctor_list: Doctors List
+  doctor_detail: Doctor Detail
+  about: About us
+  signin: Sign in
+  signup: Sign up
+  decription: Alongside Rouhani Referring to the marginalisation of life reformists after the disputed presidential vote then.
+  emergency_cases: Emergency cases
+  emergency_decription: If you need to call an ambulance, we are always here.
+  call_us: Call us
+  emergency: (062) 109-9222
+  apointment_decription: You need to see a doctor to check your health, book an appointment online here
+  doctor_timetables: Doctor Timetables
+  calender: Calender
+  calender_decription: Doctor can check their appointments here after login.
+  working_time: Working Time
+  mon_fri: Mon - Fri 08:00am - 10:00pm
+  sat: Saturday - 10:00am - 07:00pm
+  sun: Sunday - Emergency Only
+  mon: Monday - 8:00 AM – 10:00 pm
+  tue: Tuesday - 8:00 AM – 7:00 pm
+  ambulance_service: Ambulance 24/7 Service
+  copy_right: ©2018 Medical Schedule.All Rights Reserved. Designed by
+  articles: Latest articles
+  article_1_title: Your Medical Records are Safe
+  article_1_time: 21 Octobar 2017
+  article_1_content: Clicking sounds were generted size of cig arette smoke particles chemical compositions
+  total_staff: 108
+  staff: Our staff
+  staffs: Staffs Management
+  total_experience: 20
+  experience: Years of experience
+  total_smiler: 1450
+  smiler: Happy smiler
+  total_blood: 646
+  blood_donate: Blood Donate
+  create_account: Create a article account
+  user_name: User name
+  mail: Email
+  pass: Password
+  pass_confirm: Password confirmation
+  new_user: You are new user?
+  signup_now: Sign up now!
+  remember: remember
+  remember_me: Remember me on this computer
+  invalid: Invalid email/password combination
+  not_found: User not found
+  admins: Admins
+  create_doctor: Create doctor
+  manager_user: Manager Users
+  manager_doctor: Doctors Management
+  manager_staff: Staffs Management
+  manager_patient: Patients Management
+  patients: Patients
+  appointment: Appointment
+  user_name: User name
+  contact: Contact
+  home: Home
+  update: Update
+  doctor: Doctor
+  email: Email address
+  password: Password
+  password_confirmation: password confirmation
+  position: Position
+  room: Room
+  work_room: Work room
+  academy: Academy
+  experience: Experience
+  department: Department
+  submit: Submit
+  hust: HUST
+  action: Action
+  edit: Edit
+  edit_falsed: Edit falsed!
+  delete: Delete
+  doctor: Doctor
+  more_info: More info
+  staffs: Staffs
+  edit_staff_account: Edit staff account
+  edit_doctor_account: Edit doctor account
+  edit_patient_account: Edit patient account
+  edit_admin_account: Edit admin account
+  patient: Patient
+  patient_list: Patients List
+  number_doctor: 150
+  number_staff: 120
+  number_patient: 200
+  number_appointment: 150
+  search: Search
+  signin_require: Please Signin!
+  signout: Sign out
+  account: My account
+  university: Student at Australian National University and the lead author of a paper published in Nature on Wednesday that may hold the answer. Mr. Jones and his colleagues developed a model that simulates what’s happening in our planet’s mantle beneat the crust that we live on, offering a window to the center of the.
+  gender: Gender
+  male: Male
+  female: Female
+  select_your_service: Select your service
+  date_of_birth: Date of Birth
+  email: Email
+  phone: Phone
+  reservation_date: Reservation date
+  address: Address
+  status: Status
+  medical_record: Medical record
+  appointment_time: Appointment time
+  full_name: Fullname
+  from_time: From time
+  to_time: To time
+  message: Message
+  day: Day
+  no_result: No result!
+  search_result: Search result
+  schedule: Doctor Schedules
+  appointment_list_with_doctor: Appointments list with doctor
+  appointment_created: Appointment created! Please wait for accept from us!
+  appointment_not_created: Appointment not created
+  must_be_a_valid_file_format: must be a valid file format
+  should_be_less_than_5MB: should be less than 5MB
+  profile: Your Profile
+  edit_profile: Edit profile
+  save_changes: Save changes
+  save: Save
+  settings: Settings
+  update_your_profile: Update profile
+  update_doctor_profile: Update Doctor's profile
+  profile_updated: Profile update
+  not_success: Not update success
+  id: ID
+  doctor_name: Doctor name
+  patient_name: Patient name
+  appointment_list: Appointment list
+  accept: Accept
+  cancel: Cancel
+  start_time: Start time
+  end_time: End time
+  new_appointment: New appointment
+  not_allowed: You are not authorized to access this page!
+  comments: Comments
+  comment_at: commented at
+  options: Options
+  enter_comment: Enter comment
+  add_comment: Add comment
+  reply: Reply
+  comment_not_found: Comment not found!
+  comment_remove: Comment removed!
+  delete_comment_failed: Delete comment failed!
+  create_comment_success: Create comment success!
+  image: Image
+  comment:
+    zero: Comment (0 comment)
+    one: Comment (1 comment)
+    other: Comment (%{count} comments)
+  appointment_canceled: Appointment canceled
+  cancel_confirm: Cancel corfirm
+  are_you_sure_delete: Are you sure you want to delete
+  are_you_sure_you_want_to_accept: Are you sure you want to accept
+  appointment_accepted: Appointment accept
+  appointment_not_accepted: Appointment not accept
+  already_have_an_appointment: Already have an appointment at this time
+  success: Success
+  canceled: Canceled
+  valid_image: Image must be a valid image format
+  image_size: Should be less than 5MB
+  choose_smaller_file: Maximum file size is 5MB. Please choose a smaller file.
+  description: Description
+  patient_info: Patient Information
+  no_file: No file upload!
+  doctor_schedules: Doctor Schedules
+  doctor_list: Doctors List
+  create_account_success: Create account successfully!
+  account_deleted: Account deleted sucessfully!
+  admin_dashboard: Admin Dashboard
+  are_you_sure_delete: Are you sure you want to delete?
+  admin_list: Admins List
+  admin: Admin
+  stt: "No."
+  doctor_deleted: doctor deleted
+  doctor_not_deleted: doctor not deleted
+  edit_information_doctor: edit information doctor
+  update_information_doctor: Update information doctor
+  doctor_updated: Doctor update
+  doctor_not_success: Doctor not success
+  create_doctor_success: create doctor success
+  create_doctor_not_success: create doctor not success
+  create: Create
+  not_create_success: Not create success
+  errors_blank: can't be blank
+  errors_not_a_number: is not a number
+  errors_taken: has already been taken
+  invalid_errors: is invalid
+  invalid: Invalid email/password combination
+  have_account: You have an account?
+  signin_here: Signin here!
+  forgot_password: Forgot password?
+  send_reset_link: Send me reset password instructions
+  resend_reset_link: Resend confirmation instructions
+  require_current_pass: (we need your current password to confirm your changes)
+  current_password: Current password
+  mini_character: characters minimum
+  doctor_list: Doctor list
+  you_are_not_authorized_to_access_this_page: You are not authorized to access this page.
+  a_z: A -> Z
+  z_a: Z -> A
+  articles_list: Articles list
+  popular: Popular
+  rencent: Rencent
+  comments: Comments
+  know_more: Know more
+  likes: "Like:"
+  comments: "Comments:"
+  show_articles: Show article
+  obituary: Obituary Tells Brutal  of Sister’s
+  articles: Articles
+  faculty: Faculty

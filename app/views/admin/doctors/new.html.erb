@@ -1,0 +1,15 @@
+<% provide :title, t("create_account") %>
+<% provide :button_text, t("create") %>
+
+<div class="card edit-form-nice">
+  <div class="card-header">
+    <h1 class="card-title color-list">
+      <%= t "create_account" %>
+    </h1>
+  </div>
+  <div class="card-body">
+    <table id="example2" class="table table-bordered table-hover">
+      <%= render "shared/form", object: @doctor %>
+    </table>
+  </div>
+</div>

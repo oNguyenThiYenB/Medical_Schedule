@@ -1,0 +1,76 @@
+<%= form_for load_yield_object object do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t("user_name"), class:"require_lb" %>
+  <%= f.text_field :user_name, class: "form-control space" %>
+
+  <%= f.label t("full_name"), class:"require_lb" %>
+  <%= f.text_field :full_name, class: "form-control space" %>
+
+  <%= f.label t("mail"), class:"require_lb" %>
+  <%= f.email_field :email, class: "form-control space" %>
+
+  <%= f.label t("phone") %>
+  <%= f.text_field :phone, class: "form-control space" %>
+
+  <% unless object.admin? %>
+    <%= f.label t("address") %>
+    <%= f.text_field :address, class: "form-control space" %>
+  <% end %>
+
+  <% if current_user.doctor? %>
+    <%= f.label t("pass") %>
+    <%= f.password_field :password, class: "form-control space" %>
+
+    <%= f.label t("pass_confirm") %>
+    <%= f.password_field ￼:password_confirmation, class: "form-control space" %>
+  <% end %>
+
+  <% if object.doctor? %>
+    <%= f.label t("position") %>
+    <%= f.text_field :position, class: "form-control space" %>
+
+    <%= f.label t("experience") %>
+    <%= f.text_field :experience, class: "form-control space" %>
+
+    <%= f.label t("room") %>
+    <%= f.text_field :room, class: "form-control space" %>
+
+    <%= f.label t("description") %>
+    <%= f.text_area :description, class: "form-control space" %>
+  <% end %>
+
+  <% if object.patient? %>
+    <div>
+      <%= f.label t("medical_record") %>
+      <%= f.file_field :files, accept: Settings.type_file_accept, multiple: true, class: "form-control upload_file" %>
+      <% if object.files.attached? %>
+        <ul>
+          <% object.files.each do |file| %>
+            <li class="medical_record">
+              <%= link_to get_file_name(object, file), url_for(file), class: "space file_name" %>
+              <i class="fas fa-trash"></i>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <h6><%= t "no_file" %></h6>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.label t("image") %>
+  <%= f.file_field :image, accept: Settings.image_accept, class: "form-control space upload_image" %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag object.display_image, class: "image avatar", id: "user_avatar" if object.image.attached? %>
+    </div>
+    <div class="col-md-8 btn_edit_form">
+      <div class="text-center space create_account">
+        <%= link_to t("cancel"), yield(:btn_cancel_edit), class: "btn btn-danger custom_btn btn-size" %>
+        <%= f.submit t("save"), class: "btn btn-primary btn-size" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<% if @doctors.present? %>
+  <table id="example2" class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th><%= t "stt" %></th>
+        <th><%= t "user_name" %></th>
+        <th><%= t "avata" %></th>
+        <th><%= t "full_name" %></th>
+        <th><%= t "position" %></th>
+        <th><%= t "department" %></th>
+        <th><%= t "experience" %></th>
+        <th><%= t "room" %></th>
+        <th class="action-head"><%= t "action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @doctors %>
+    </tbody>
+  </table>
+<% else %>
+  <h3 class="red_color"><%= t "no_result" %></h3>
+<% end %>

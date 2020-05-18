@@ -1,0 +1,40 @@
+bs3_css: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+cdnjs: "https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+http_ionicframework: https://kit.fontawesome.com/a076d05399.js
+https_googleapis: https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700
+valid_email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+max_user_name: 50
+max_email: 255
+min_pass: 6
+max_phone: 10
+session_params: "1"
+page_size: 12
+doctor_pages: 5
+max_address: 40
+size_file: 5
+content_type_file: ["application/pdf", "application/msword"]
+type_file_accept: application/pdf, .doc, .docx
+app_pages: 10
+imgsize5: 5
+resize_to_limit: [200, 200]
+image_accept: "image/jpeg,image/gif,image/png"
+awesome_icon: "https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+limit_day: 7
+max_day: 14
+limit_time: -7200
+accept: 1
+default_password: "111111"
+fail_password: "111"
+fail_email: "aaa"
+delete_test: 100
+waiting: waiting
+accept: :accept
+cancel: :cancel
+new_page_size: 6
+number_like: 233
+number_comment: 123
+factories:
+  appointment:
+    max_number_phone: 11
+    status_faker: 1
+    max_address: 41

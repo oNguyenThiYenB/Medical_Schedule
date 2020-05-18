@@ -1,0 +1,10 @@
+<% provide :title, t("search_result") %>
+<h1><%= t "search_result" %></h1>
+<div class="doctor_page">
+  <div class="container">
+    <div class="row">
+      <%= render @doctors %>
+    </div>
+    <%= paginate @doctors %>
+  </div>
+</div>

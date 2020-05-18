@@ -1,0 +1,10 @@
+<div class="col-lg-3 col-md-6">
+  <div class="single_doctor">
+    <%= link_to doctor, class:"doctor_img", data: {turbolinks: "false"} do %>
+      <%= image_tag doctor.image if doctor.image.attached? %>
+    <% end %>
+    <h5><i><%= doctor.position %></i></h5>
+    <h5><%= link_to doctor.full_name, doctor %></h5>
+    <span><%= doctor.department %></span>
+  </div>
+</div>

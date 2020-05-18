@@ -1,0 +1,15 @@
+<tr>
+  <td><%= numbered params[:page], doctor_counter, Settings.page_size %></td>
+  <td><%= doctor.user_name %></td>
+  <td><%= image_tag doctor.image, class: "user_avatar" if doctor.image.attached? %></td>
+  <td><%= doctor.full_name %></td>
+  <td><%= doctor.position %></td>
+  <td><%= doctor.department %></td>
+  <td><%= doctor.experience %></td>
+  <td><%= doctor.room %></td>
+  <td>
+    <%= link_to t("edit"), edit_admin_doctor_path(doctor.id), class: "btn btn-primary btn-size", method: :get %>
+    <%= link_to t("delete"), admin_doctor_path(doctor), method: :delete, data:
+      { confirm: t("are_you_sure_delete") }, class: "btn btn-danger btn-size" %>
+  </td>
+</tr>

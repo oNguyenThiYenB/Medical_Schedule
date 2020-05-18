@@ -1,0 +1,5 @@
+<p><%= t "hi" %> <%= @email %>!</p>
+
+<p><%= t "active_account" %></p>
+
+<p><%= link_to t("active"), user_confirmation_url(confirmation_token: @token) %></p>

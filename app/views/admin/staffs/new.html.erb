@@ -1,0 +1,15 @@
+<% provide :title, t("staffs") %>
+<% provide :button_text, t("create_account") %>
+
+<div class="card">
+  <div class="card-header">
+    <h1 class="card-title color-list">
+      <%= t "create_staff_account" %>
+    </h1>
+  </div>
+  <div class="card-body ">
+    <div class="form_container">
+      <%= render "shared/form", object: @staff %>
+    </div>
+  </div>
+</div>

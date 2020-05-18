@@ -1,0 +1,15 @@
+<% provide :title, t("patient_list") %>
+
+<div class="container">
+  <div class="card-header padding-card">
+    <h1 class="card-title color-list">
+      <%= t "patient_list"%>
+    </h1>
+  </div>
+  <div class="card-body">
+    <div class="row justify-content-md-center">
+      <%= render "table_patient_list" %>
+    </div>
+    <%= paginate @patients %>
+  </div>
+</div>

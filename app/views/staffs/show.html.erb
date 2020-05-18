@@ -1,0 +1,42 @@
+<% provide :title, @staff.user_name %>
+<div class="doctor_page profile_bg">
+  <div class="container profile">
+    <div class="row row_profile">
+      <div class="single_doctor detail">
+        <div class="show_user show_user_header">
+          <%= image_tag @staff.display_image, alt: "", class: "show_user_icon" %>
+          <h5 class="blue_color"><%= @staff.user_name%></h5>
+          <hr class="image_divider">
+        </div>
+        <div class="show_user">
+          <table class="table table-responsive show_user_table">
+            <tr>
+              <td class="show_user_label"><b><%= t "full_name" %>:</b></td>
+              <td class="user_content"><%= @staff.full_name %></td>
+            </tr>
+            <tr>
+              <td class="show_user_label"><b><%= t "email" %>:</b></td>
+              <td class="user_content"><%= @staff.email %></td>
+            </tr>
+            <tr>
+              <td class="show_user_label"><b><%= t "phone" %>:</b></td>
+              <td class="user_content"><%= @staff.phone %></td>
+            </tr>
+            <tr>
+              <td class="show_user_label"><b><%= t "address" %>:</b></td>
+              <td class="user_content"><%= @staff.address %></td>
+            </tr>
+            <tr>
+              <td colspan="2"><hr class="table_divider"></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="td_btn_show_profile">
+                <%= link_to t("settings"), edit_user_registration_path, class: "btn custom_btn btn-width" %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="col-md-4">
+  <div class="doctor_profile">
+    <div class="centered">
+      <%= image_tag @doctor.image, alt: "", class: "doctor_image" if @doctor.image.attached? %>
+      <h5><%= @doctor.full_name %></h5>
+      <hr>
+    </div>
+    <ul class="doctor_data">
+      <li>
+        <h4><%= t "position" %>:</h4><%= @doctor.position %>
+      </li>
+      <li>
+        <h4><%= t "department" %>:</h4> <%= @doctor.department %>
+      </li>
+      <li>
+        <h4><%= t "experience" %>:</h4> <%= @doctor.experience %>
+      </li>
+      <li>
+        <h4><%= t "work_room" %>:</h4> <%= @doctor.room %>
+      </li>
+    </ul>
+    <div class="doctor_contact">
+      <div class="single_contact space">
+        <ul>
+          <li>
+            <strong><%= t "email" %>:</strong>
+            <%= link_to @doctor.email, Settings.mail_link %>
+          </li>
+          <% if current_user&.check_user_to_show_info %>
+            <li>
+              <strong><%= t "phone" %>:</strong>
+              <%= @doctor.phone %>
+            </li>
+            <li>
+              <strong><%= t "address" %>:</strong>
+              <%= @doctor.address %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

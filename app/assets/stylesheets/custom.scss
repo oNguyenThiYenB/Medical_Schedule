@@ -1,0 +1,574 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color.scss';
+
+/* mixins, variables, etc. */
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.htr_language > li{
+  display: inline-block !important;
+}
+
+/* forms */
+input, textarea, select, .uneditable-input {
+  border: 1px solid $gray_second;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+.sticky_navbar {
+  background-color: White;
+  // border: 1px solid #ccc;
+  // border: 1px solid rgba(0, 0, 0, 0.15);
+  // border-radius: 2px;
+  // -webkit-box-shadow: 0 3px 6px #ccc;
+  // box-shadow: 0 3px 6px #ccc;
+}
+
+.row_profile {
+  display: block;
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table-row {
+  display: table-row;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .table {
+      display: block;
+  }
+}
+
+.htr_language>li>a {
+  padding-right: 15px;
+}
+
+.htr_language>li {
+  margin-inline-end: 15px;
+}
+
+.htr_language>li>ul>hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-nice {
+  width: 70px !important;
+  margin: 5px !important;
+}
+
+.btn_group {
+  width: 200px;
+  ul {
+    height: 32px;
+  }
+  ul > li {
+    display: inline-flex;
+  }
+}
+
+input {
+  height: none !important;
+}
+
+#error_explanation {
+  text-align: left;
+  color: $red_light;
+  border: 0.5px solid $light_pink;
+  border-radius: 15px;
+  background-color: $light_grey;
+  padding: 10px;
+  ul {
+    list-style: disc;
+    padding-left: 40px;
+    text-align: left;
+    color: $red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.search-size {
+  font-size: 25px !important;
+  width: 30px;
+  margin-top: 3px;
+}
+.message-nice {
+  padding-top: 20px;
+}
+
+.space-right {
+  padding-right: 20px;
+}
+
+/* typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.7em;
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.btn-size {
+  width: 200px;
+}
+
+.single_welcome_slider {
+  height: 650px;
+}
+
+.btn-signin {
+  background-color: $btn-color !important;
+  color: $white !important;
+  margin-right: 20px !important;
+  font-weight: bold !important;
+  border-color: $btn-border-color !important;
+}
+
+.search_form {
+  input {
+    margin-left: 20px !important;
+  }
+}
+
+.btn_font_weight {
+  font-weight: bold !important;
+}
+
+.space {
+  margin-bottom: 20px !important;
+  height: 40px !important;
+}
+
+/* paginate */
+.pagination a, .pagination span.current, .pagination span.gap {
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid $solid-white-2;
+  border-left-width: 0;
+}
+
+.paginate_row{
+  text-align: center;
+  margin: 0 2%;
+}
+
+.pagination {
+  border-left: 1px solid $solid-white-3;
+  color: $black;
+  .first{
+    padding: 0;
+    float: none;
+    border: none;
+  }
+  .prev {
+    padding: 0;
+    float: none;
+    border: none;
+  }
+  .page{
+    padding: 0;
+    float: none;
+    border: none;
+  }
+  .next{
+    padding: 0;
+    float: none;
+    border: none;
+  }
+  .last{
+    padding: 0;
+    float: none;
+    border: none;
+  }
+}
+
+.show_title {
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+.blog_area {
+  padding: 50px 0;
+}
+
+.centered {
+  text-align: center;
+}
+
+.select-be {
+  border: none;
+  height: 58px;
+  color: $gray-char;
+}
+
+.height-input {
+  height: 58px !important;
+}
+
+.p-record {
+  margin-left: 12px;
+}
+
+.padding-message{
+  margin-top: 10px;
+}
+
+.btn-submit {
+  width: 10px !important;
+  background-color: $color-submit !important;
+}
+
+.btn-width {
+  width: 70px !important;
+}
+
+.height-input-second {
+  height: 50px !important;
+}
+
+.red-color {
+  color: $red;
+}
+
+.blue_color {
+  color: $light-blue !important;
+}
+
+.left_float {
+  float: left;
+  width: auto;
+}
+
+.right_float {
+  float: right;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.padding-card {
+  padding: 10px;
+}
+
+.background-color {
+  background-color: $btn-color;
+}
+
+table {
+  counter-reset: rowNumber;
+}
+
+table .trow {
+  counter-increment: rowNumber;
+}
+
+table .trow td:first-child::before {
+  content: counter(rowNumber);
+}
+
+th {
+  text-align: center !important;
+}
+
+.btn-color {
+  background-color: $btn-color !important;
+}
+
+.fc-today {
+  background: $gray-medium-light !important;
+}
+
+.fc-center {
+  .fc-button {
+    width: 60px;
+    text-transform: capitalize;
+  }
+}
+
+.background_set {
+  background-image: url(img/about4.jpg);
+  background-size: contain;
+}
+
+.comment_content {
+  padding-left: 0px !important;
+  margin-top: 60px !important;
+}
+
+.padding_comment {
+  padding-top: 30px !important;
+}
+
+.padding_content {
+  margin: 0px 0px !important;
+}
+
+.content_height {
+  textarea {
+    height: 100px;
+  }
+}
+
+.message {
+  height: 80px;
+}
+
+.user_details {
+  li{
+    display: inline;
+  }
+  .show{
+    display: inline-block !important;
+  }
+}
+
+.float_right {
+  float: right;
+}
+
+.test:after {
+  content: '\2807';
+  font-size: 1em;
+  color: $black_gray;
+  float: right;
+}
+
+.btn-nice {
+  width: 70px !important;
+  margin: 5px !important;
+}
+
+//show user
+.show_user {
+  margin: 0% 9%;
+}
+
+.show_user_header {
+  text-align: center;
+  margin-top: -6%;
+}
+
+.image_divider {
+  border-color: $light-blue;
+}
+
+.table_divider {
+  border-color: $light-blue;
+}
+
+.show_user_icon {
+  width: 25%;
+  border-radius: 50%;
+  margin-top: -8%;
+  height: 195px;
+}
+
+.show_user_table {
+  color: $black;
+  margin: 0px auto;
+  font-size: 18px;
+
+  td {
+    border-top: 0px !important;
+    height: 20px;
+    padding-right: 20px !important;
+  }
+
+  .show_user_label {
+    color: $light-blue;
+    text-align: left;
+    padding-left: 5%;
+  }
+
+  .td_btn_show_profile {
+    .btn {
+      width: 30%;
+    }
+  }
+}
+
+.profile {
+  width: 50% !important;
+}
+
+// .row {
+//   display: block;
+// }
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1500px;
+}
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1500px;
+}
+}
+
+.profile_bg {
+  background-image: url(welcome_shap.png);
+  background-size: cover;
+}
+
+.detail {
+  border-radius: 5%;
+}
+
+.show_user_table td, .show_user_table th {
+  border: none !important;
+}
+
+.user_content {
+  text-align: left;
+}
+
+.edit_patient {
+  text-align: left;
+}
+
+.btn_edit_form {
+  margin-top: 18%;
+}
+
+.doctor_image {
+  width: 50%;
+  margin-top: -8%;
+  width: 400px !important;
+  height: 500px;
+
+}
+
+#user_avatar {
+  min-height: 200px !important;
+}
+
+.require_lb::after {
+  content: '*';
+  color: $red;
+  font-size: 18px;
+}
+
+.patient_avatar {
+  width: 40%;
+  border-radius: 50%;
+  margin-top: -8%;
+  height: 150px;
+}
+
+#avatar_icon {
+  width: 30px;
+  border-radius: 50%;
+  height: 30px;
+}
+
+#doctor_description {
+  height: 200px !important;
+  max-width: 100%;
+}
+
+.time_table_area {
+  padding: 50px 0;
+}
+
+.file_content {
+  width: 700px;
+  height: 780px;
+  border: none;
+}
+
+.remember_box {
+  width: auto;
+  margin-left: 0px !important;
+}
+
+.alert-notice {
+  color: $notice_color;
+  background-color: $background_notice_color;
+  border-color: $border_notice_color;
+}
+
+.alert-alert {
+  color: $alert_color;
+  background-color: $background_alert_color;
+  border-color: $border_alert_color;
+}
+
+.hiddent-content {
+  white-space: nowrap;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box-width {
+  width: 80px !important;
+}
+
+.sort {
+  width: 30% !important;
+}
+
+.height-input-second {
+  background-color: $select_bg;
+}

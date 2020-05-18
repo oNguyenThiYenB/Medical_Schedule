@@ -1,0 +1,10 @@
+<%= content_tag :div, class: "single_comment_#{comment.id}" do %>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <%= content_tag :div, class: "panel-body panel-body-#{comment.id}" do %>
+        <p><%= t "comment_remove" %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

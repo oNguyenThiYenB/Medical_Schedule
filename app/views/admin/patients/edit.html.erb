@@ -1,0 +1,16 @@
+<% provide :title, t("patients") %>
+<% provide :button_text, t("create_account") %>
+<% provide :btn_cancel_edit, admin_patients_path %>
+
+<div class="card">
+  <div class="card-header">
+    <h1 class="card-title color-list">
+      <%= t "edit_patient_account" %>
+    </h1>
+  </div>
+  <div class="card-body ">
+    <div class="form_container">
+      <%= render "shared/edit_form", object: @patient %>
+    </div>
+  </div>
+</div>

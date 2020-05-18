@@ -1,0 +1,165 @@
+.create_account {
+  float:right;
+  margin-bottom: 10px
+}
+
+th {
+  text-align: center;
+  background-color: $graylight;
+}
+
+.logo {
+  width: 30%
+}
+
+.color-list {
+  color: green;
+}
+
+.create-account {
+  color: green;
+  float: right;
+}
+
+.btn-size {
+  width: 100px;
+}
+
+.action-head {
+  width: 15em;
+}
+
+.center {
+  margin-left: 25%;
+  width: 50%;
+}
+
+.item_list {
+  margin-left: 8%;
+}
+
+.space {
+  margin-bottom: 20px !important;
+  height: 40px !important;
+}
+
+.centered {
+  text-align: center;
+}
+
+.fit_content {
+  width: fit-content;
+}
+
+/* paginate */
+.pagination a, .pagination span.current, .pagination span.gap {
+  padding: 0 14px;
+  line-height: 38px !important;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid $solid-white-2;
+  border-left-width: 0;
+}
+
+.paginate_row{
+  text-align: center;
+  margin: 0 2%;
+}
+
+.pagination {
+  border-left: 1px solid $solid-white-3;
+  color: $black;
+  .first{
+    padding: 0;
+    float: none;
+    border: none;
+    display: flex;
+  }
+  .prev {
+    padding: 0;
+    float: none;
+    border: none;
+    display: flex;
+  }
+  .page {
+    padding: 0;
+    float: none;
+    border: none;
+    display: flex;
+  }
+  .next {
+    padding: 0;
+    float: none;
+    border: none;
+    display: flex;
+  }
+  .last {
+    padding: 0;
+    float: none;
+    border: none;
+    display: flex;
+  }
+}
+
+.require_lb::after {
+  content: '*';
+  color: $red;
+  font-size: 18px;
+}
+
+.detail {
+  border-radius: 5%;
+  width: 80%;
+}
+
+.edit-form-nice {
+  width: 80%;
+  margin-left: 150px;
+}
+
+.top-margin {
+  margin-top: 30px;
+}
+
+.space {
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.float-right {
+  float: right;
+}
+
+.user_avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.name_content {
+  width: 15%;
+}
+
+.phone_content {
+  width: 9%;
+}
+
+.no_content {
+  width: 4%;
+}
+
+.address_content {
+  width: 20%;
+}
+
+.red_color {
+  color: $red;
+}
+
+.file_name {
+  text-decoration: underline;
+  display: table-row-group;
+}
+
+.medical_record {
+  display: inline;
+}

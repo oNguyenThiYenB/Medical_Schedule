@@ -1,0 +1,8 @@
+<%= form_tag doctor_comments_path(@doctor.id), remote: true, class: "contact_form" do %>
+  <div class="row padding_content">
+    <div class="col">
+      <%= text_area_tag :content, nil, placeholder: t("enter_comment"), required: true %>
+    </div>
+  </div>
+  <%= button_tag t("add_comment"), type: "submit", class: "custom_btn" %>
+<% end %>

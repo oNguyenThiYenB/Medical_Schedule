@@ -1,0 +1,24 @@
+<%= form_for @doctor do |f| %>
+  <%= f.label t "email" %>
+  <%= f.email_field :email, class: "form-control" %>
+
+  <%= f.label t "password" %>
+  <%= f.password_field :password, class: "form-control" %>
+
+  <%= f.label t "password_confirmation" %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+
+  <%= f.label t "room" %>
+  <%= f.text_field :room, class: "form-control" %>
+
+  <%= f.label t "position" %>
+  <%= f.text_field :position, class: "form-control" %>
+
+  <%= f.label t "academy" %>
+  <%= f.text_field :academy, class: "form-control" %>
+
+  <%= f.label t "experience"  %>
+  <%= f.text_field :experience, class: "form-control" %>
+
+  <%= f.submit t("submit"), class: "btn btn-primary" %>
+<% end %>

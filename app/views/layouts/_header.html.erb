@@ -1,0 +1,101 @@
+<header class="sticky-top sticky_navbar">
+  <div class="header_top_area">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-12">
+          <div class="htl">
+            <p><%= t "welcome_app" %></p>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12 text-right">
+          <div class="htr">
+            <i class="zmdi zmdi-phone"></i><%= t "phone_number" %>
+            <ul class="htr_language">
+              <% if current_user.present? %>
+                <li>
+                  <%= image_tag current_user.image, id: "avatar_icon" if current_user.image.attached? %>
+                  <%= link_to "#" do %>
+                    <%= current_user.user_name %><i class="zmdi zmdi-caret-down"></i>
+                  <% end %>
+                  <ul>
+                    <li><%= link_to t("profile"), current_user %></li>
+                    <hr>
+                    <li><%= link_to t("settings"), edit_user_registration_path %></li>
+                    <hr>
+                    <li>
+                      <%= link_to t("signout"), destroy_user_session_path, method: :delete %>
+                    </li>
+                  </ul>
+                </li>
+              <% else %>
+                <li><b><%= link_to t("signin"), new_user_session_path , class:"btn-signin btn" %></b></li>
+              <% end %>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t "language" %><i class="zmdi zmdi-caret-down"></i></b>
+                <% end %>
+                <ul>
+                  <li><%= link_to "English", locale: "en" %></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header_area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-6">
+          <%= link_to home_path, class:"site_logo", data: {turbolinks: "false"} do %>
+            <%= image_tag "logo.png" %>
+          <% end %>
+        </div>
+        <div class="col-lg-10 text-right col-6">
+          <nav class="menu_bar">
+            <ul class="main_menu">
+              <% if current_user&.admin? %>
+                <li><%= link_to t("admin_dashboard"), admin_dashboard_path %></li>
+              <% end %>
+              <li><%= link_to t("home"), home_path, data: {turbolinks: "false"} %></li>
+              <li><%= link_to t("appointment"), "#", data: {turbolinks: "false"} %>
+                <ul>
+                  <% if can? :index, Appointment %>
+                    <li><%= link_to t("appointment_list"), appointments_path %></li>
+                  <% end %>
+                  <% if can? :new, Appointment %>
+                    <li><%= link_to t("new_appointment"), new_appointment_path, data: {turbolinks: "false"} %></li>
+                  <% end %>
+                </ul>
+              </li>
+              <li><%= link_to t("faculty"), "#", data: {turbolinks: "false"} %>
+                <ul>
+                <% faculties.map do |faculty|%>
+                  <li><%= link_to faculty[0], faculty_path(faculty[1]) %></li>
+                <% end %>
+                </ul>
+              <li><%= link_to t("doctor"), "#", data: {turbolinks: "false"} %>
+                <ul>
+                  <li><%= link_to t("doctor_list"), doctors_path %></li>
+                  <% if current_user&.admin? || current_user&.doctor? %>
+                    <li><%= link_to t("schedule"), doctor_schedules_path(current_user), data: {turbolinks: "false"} %></li>
+                  <% end %>
+                </ul>
+              </li>
+              <% if current_user&.admin? || current_user&.staff? %>
+                <li><%= link_to t("patient"), "#", data: {turbolinks: "false"} %>
+                  <ul>
+                    <li><%= link_to t("patient_list"), patients_path %></li>
+                  </ul>
+                </li>
+              <% end %>
+              <li><%= link_to t("articles"), articles_path, data: {turbolinks: "false"} %></li>
+              <li><%= link_to t("about"), about_path, data: {turbolinks: "false"} %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

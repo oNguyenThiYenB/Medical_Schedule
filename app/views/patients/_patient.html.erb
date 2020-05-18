@@ -1,0 +1,18 @@
+<tr>
+  <td><%= numbered params[:page], patient_counter, Settings.app_pages %></td>
+  <td>
+    <%= link_to patient.full_name, patient_path(patient.id), data: {turbolinks: "false"} %>
+  </td>
+  <td><%= patient.email %></td>
+  <td><%= patient.phone %></td>
+  <td><%= patient.address %></td>
+  <td>
+    <% if patient.files.attached? %>
+      <% patient.files.each do |file| %>
+        <%= link_to get_file_name(patient, file), url_for(file), class: "space file_name" %>
+      <% end %>
+    <% else %>
+      <h6><%= t "no_file" %></h6>
+    <% end %>
+  </td>
+</tr>

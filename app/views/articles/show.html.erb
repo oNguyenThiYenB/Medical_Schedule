@@ -1,0 +1,24 @@
+<% provide :title, t("show_articles")%>
+<div class="blog_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="blog_detaisl_area">
+          <div class="blog_full_content">
+            <% if @article.images.attached? %>
+              <% @article.images.each do |image| %>
+                <div><%= image_tag image %></div>
+              <% end %>
+            <% end %>
+            <h4><%= @article.title %></h4>
+            <div class="blog_meta">
+              <%= t("likes") %> <%= Settings.number_like %> | <%= t("comments") %> <%= Settings.number_comment %>
+            </div>
+            <%= @article.content %>
+          </div>
+        </div>
+      </div>
+      <%= render ("slidebar") %>
+    </div>
+  </div>
+</div>

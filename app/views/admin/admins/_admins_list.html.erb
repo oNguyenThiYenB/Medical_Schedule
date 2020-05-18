@@ -1,0 +1,20 @@
+<% if @admins.present? %>
+  <table id="example2" class="table table-bordered table-hover table-responsive">
+    <thead>
+      <tr>
+        <th><%= t "stt" %></th>
+        <th><%= t "avatar" %></th>
+        <th><%= t "full_name" %></th>
+        <th><%= t "user_name" %></th>
+        <th><%= t "email" %></th>
+        <th><%= t "phone" %></th>
+        <th class="action-head"><%= t "action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @admins %>
+    </tbody>
+  </table>
+<% else %>
+  <h3 class="red_color"><%= t "no_result" %></h3>
+<% end %>

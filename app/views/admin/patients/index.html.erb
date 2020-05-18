@@ -1,0 +1,27 @@
+<% provide :title, t("patients") %>
+<div class="card">
+  <div class="card-header">
+    <h1 class="card-title color-list">
+      <%= t "patient_list" %>
+    </h1>
+    <br>
+    <%= search_form_for @q, url: admin_patients_path, class: "form-inline" do |f| %>
+      <div class="input-group input-group-sm div-top-search">
+        <%= f.search_field :full_name_or_email_or_phone_or_address_or_user_name_cont, class: "form-control" %>
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    <% end %>
+    <select class="custom-select" class="sort">
+      <option><%= t "z_a" %></option>
+    </select>
+    <%= link_to t("create_account"), new_admin_patient_path, class: "btn btn-primary create_account" %>
+  </div>
+  <div class="card-body">
+    <div class="row justify-content-md-center">
+      <%= render "patients_list" %>
+    </div>
+    <%= paginate @patients %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<% provide :title, t("edit_profile") %>
+<% provide :btn_cancel_edit, doctor_path(@doctor) %>
+<div class="doctor_page profile_bg">
+  <div class="container profile">
+    <div class="row">
+      <div class="single_doctor detail edit_patient">
+        <div class="show_user space">
+          <h1><%= t "update_doctor_profile" %></h1>
+        </div>
+        <div class="show_user">
+          <%= render "shared/edit_form", object: @doctor %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

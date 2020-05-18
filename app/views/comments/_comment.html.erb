@@ -1,0 +1,42 @@
+<%= content_tag :div, class: "single_comment_#{comment.id}" do %>
+  <div class="col-sm-2">
+    <div class="thumbnail">
+      <%= image_tag "default_avatar.png", class: "img-responsive user-photo" %>
+    </div>
+  </div>
+  <div class="col-sm-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><%= comment.patient_full_name %></strong>
+        <span class="text-muted"><%= t "comment_at" %> <%= time_tag comment.created_at %></span>
+        <ul class="htr_language float_right">
+          <% if can_delete_comment? comment %>
+            <li class="dropdown">
+              <%= link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do %>
+                <div class="test"></div>
+              <% end %>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to edit_doctor_comment_path(comment.commentable_id, id: comment.id), class:"replay_btn", remote: true do %>
+                    <i class="zmdi"></i>
+                    <%= t "edit" %>
+                  <% end %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to doctor_comment_path(comment.commentable_id, id: comment.id), method: :delete, class:"replay_btn", remote: true do %>
+                    <i class="zmdi"></i>
+                    <%= t "delete" %>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%= content_tag :div, class: "panel-body panel-body-#{comment.id}" do %>
+        <p><%= comment.content %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

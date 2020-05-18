@@ -1,0 +1,15 @@
+<% provide :title, t("edit_information_doctor") %>
+<% provide :btn_cancel_edit, admin_doctors_path %>
+
+<div class="card edit-form-nice">
+  <div class="card-header">
+    <h1 class="card-title color-list">
+      <%= t "update_information_doctor" %>
+    </h1>
+  </div>
+  <div class="card-body">
+    <table id="example2" class="table table-bordered table-hover">
+      <%= render "shared/edit_form", object: @doctor %>
+    </table>
+  </div>
+</div>

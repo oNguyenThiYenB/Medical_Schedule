@@ -1,0 +1,31 @@
+<% provide :title, t("doctor_detail") %>
+<h1><%= t "doctor_detail" %></h1>
+<div class="doctor_details_area">
+  <div class="container">
+    <div class="row row_profile">
+      <%= render "doctors/doctor_profile" %>
+      <%= render "doctors/doctor_introduce" %>
+    </div>
+  </div>
+</div>
+<div class="blog_area padding_comment profile_bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="comment_area">
+          <h4 id="comments"><%= t "comment", count: @doctor.comments.size %></h4>
+          <% if current_user&.patient? %>
+            <div class="comment_form">
+              <%= render "comments/form", commentable: @doctor %>
+            </div>
+          <% end %>
+          <hr>
+          <div class="comment_wraper">
+            <%= render page_comment @doctor.comments %>
+          </div>
+          <%= paginate page_comment @doctor.comments %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

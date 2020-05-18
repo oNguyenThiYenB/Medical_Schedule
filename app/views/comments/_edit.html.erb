@@ -1,0 +1,11 @@
+<%= form_for @commentable, url: doctor_comment_path(@comment.commentable_id, @comment.id), remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="row padding_content content_height">
+    <div class="col">
+      <%= f.text_area :content, value: @comment.content, required: true %>
+    </div>
+  </div>
+
+  <%= f.button t("edit"), type: "submit", class: "btn btn-primary btn-width" %>
+<% end %>

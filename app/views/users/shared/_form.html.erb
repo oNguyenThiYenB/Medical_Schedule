@@ -1,0 +1,23 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <%= f.label t("user_name"), class:"require_lb" %>
+  <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control space" %>
+
+  <%= f.label t("full_name"), class:"require_lb" %>
+  <%= f.text_field :full_name, autofocus: true, autocomplete: "user_name", class: "form-control space" %>
+
+  <%= f.label t("mail"), class:"require_lb" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control space" %>
+
+  <%= f.label t("pass") %>
+  <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control space" %>
+
+  <%= f.label t("pass_confirm") %>
+  <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", class: "form-control space" %>
+
+  <%= f.submit yield(:button_text), class: "btn custom_btn space create_account" %>
+<% end %>

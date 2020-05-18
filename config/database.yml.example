@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV["SQL_SERVER_USERNAME"] %>
+  password: <%= ENV["SQL_SERVER_PASS"] %>
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: Clinic_Management_development
+
+test:
+  <<: *default
+  database: Clinic_Management_test
+
+production:
+  <<: *default
+  database: Clinic_Management_production
+  username: Clinic_Management
+  password: <%= ENV['CLINIC_MANAGEMENT_DATABASE_PASSWORD'] %>

@@ -1,0 +1,27 @@
+<% provide :title, t("change_pass") %>
+<% provide :button_text, t("change_pass") %>
+
+<div class="container">
+  <h1 class="space"><%= t "reset_password" %></h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <%= f.label t("pass") %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> <% t"mini_character" %>)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control space" %>
+
+        <%= f.label t("pass_confirm") %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control space" %>
+
+        <%= f.submit yield(:button_text), class: "btn custom_btn space create_account" %>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

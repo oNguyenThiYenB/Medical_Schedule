@@ -1,0 +1,76 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <%= f.label t("user_name"), class:"require_lb left_float" %>
+  <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control space" %>
+
+  <%= f.label t("full_name"), class:"require_lb left_float" %>
+  <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name", class: "form-control space" %>
+
+  <%= f.label t("mail"), class:"require_lb left_float" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control space" %>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <%= f.label t("phone"), class:"left_float" %>
+  <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control space" %>
+
+  <% unless resource.admin? %>
+    <%= f.label t("address"), class:"left_float" %>
+    <%= f.text_field :address, autofocus: true, autocomplete: "full_name", class: "form-control space" %>
+  <% end %>
+
+  <%= f.label t("current_password"), class:"left_float" %> <i class= "left_float"><%= t "require_current_pass" %></i><br />
+  <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control space" %>
+
+  <%= f.label t("pass"), class:"left_float" %>
+  <%= f.password_field :password, autocomplete: "new-password", class: "form-control space" %>
+
+  <%= f.label t("pass_confirm"), class:"left_float" %>
+  <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control space" %>
+
+  <% if resource.doctor? %>
+    <%= f.label t("position"), class:"left_float" %>
+    <%= f.text_field :position, autofocus: true, autocomplete: "phone", class: "form-control space" %>
+
+    <%= f.label t("experience"), class:"left_float" %>
+    <%= f.text_field :experience, autofocus: true, autocomplete: "phone", class: "form-control space" %>
+
+    <%= f.label t("room"), class:"left_float" %>
+    <%= f.text_field :room, autofocus: true, autocomplete: "phone", class: "form-control space" %>
+
+    <%= f.label t("description"), class:"left_float" %>
+    <%= f.text_area :description, autofocus: true, autocomplete: "phone", class: "form-control space" %>
+  <% end %>
+
+  <% if resource.patient? %>
+    <div>
+      <%= f.label t("medical_record"), class:"left_float" %>
+      <%= f.file_field :file, accept: Settings.type_file_accept, class: "form-control upload_file" %>
+      <% if resource.files.attached? %>
+        <% resource.files.each do |file| %>
+          <%= link_to get_file_name(object, file), url_for(file), class: "space file_name" %>
+        <% end %>
+      <% else %>
+        <h6><%= t "no_file" %></h6>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.label t("image"), class:"left_float" %>
+  <%= f.file_field :image, accept: Settings.image_accept, class: "form-control space upload_image" %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag resource.display_image, class: "image avatar", id: "user_avatar" if resource.image.attached? %>
+    </div>
+    <div class="col-md-8 btn_edit_form">
+      <div class="space create_account right_float">
+        <%= link_to t("cancel"), polymorphic_path(resource), class: "btn btn-danger custom_btn btn-width" %>
+        <%= f.submit t("save"), class: "btn custom_btn btn-width" %>
+      </div>
+    </div>
+  </div>
+<% end %>

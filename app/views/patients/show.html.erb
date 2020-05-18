@@ -1,0 +1,62 @@
+<% provide :title, @patient.user_name %>
+<h1 class="centered blue_color"><%= t "patient_info" %></h1>
+<div class="doctor_page profile_bg">
+  <div class="container">
+    <div class="row row_profile">
+      <div class="col-md-4">
+        <div class="single_doctor detail">
+          <div class="shoblue_colorw_user show_user_header">
+            <%= image_tag @patient.display_image, alt: "", class: "patient_avatar" if @patient.image.attached? %>
+            <h5 class="blue_color"><%= @patient.user_name %></h5>
+            <hr class="image_divider">
+          </div>
+          <div class="show_user">
+            <table class="table table-responsive show_user_table">
+              <tr>
+                <td class="show_user_label"><b><%= t "full_name" %>:</b></td>
+                <td class="user_content"><%= @patient.full_name %></td>
+              </tr>
+              <tr>
+                <td class="show_user_label"><b><%= t "email" %>:</b></td>
+                <td class="user_content"><%= @patient.email %></td>
+              </tr>
+              <tr>
+                <td class="show_user_label"><b><%= t "phone" %>:</b></td>
+                <td class="user_content"><%= @patient.phone %></td>
+              </tr>
+              <tr>
+                <td class="show_user_label"><b><%= t "address" %>:</b></td>
+                <td class="user_content"><%= @patient.address %></td>
+              </tr>
+              <tr>
+                <td colspan="2"><hr class="table_divider"></td>
+              </tr>
+              <% if current_user.patient? %>
+                <tr>
+                  <td colspan="2" class="td_btn_show_profile">
+                    <%= link_to t("settings"), edit_user_registration_path, class: "btn custom_btn btn-width" %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="single_doctor detail">
+          <h5 class="blue_color"><%= t "medical_record" %></h5>
+          <hr class="image_divider">
+          <p>
+            <% if @patient.files.attached? %>
+              <% @patient.files.each do |patient_file| %>
+                <iframe src=<%= url_for(patient_file) %>, class="file_content"></iframe>
+              <% end %>
+            <% else %>
+              <h5><%= t "no_file" %></h5>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

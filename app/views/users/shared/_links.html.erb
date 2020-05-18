@@ -1,0 +1,15 @@
+<%- if controller_name != "sessions" %>
+  <p><%= t "have_account" %> <%= link_to t("signin_here"), new_user_session_path %></p>
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != "registrations" %>
+  <p><%= t "new_user" %> <%= link_to t("signup_now"), new_user_registration_path %></p>
+<% end %>
+
+<%- if devise_mapping.recoverable? && controller_name != "passwords" && controller_name != "registrations" %>
+  <p><%= link_to t("forgot_password"), new_password_path(resource_name) %></p>
+<% end %>
+
+<%- if devise_mapping.confirmable? && controller_name != "confirmations" %>
+  <p><%= link_to t("not_received_email"), new_user_confirmation_path(resource_name) %></p>
+<% end %>

@@ -1,0 +1,62 @@
+<div class="contact_form">
+  <%= form_for @appointment do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <% if current_user.present? %>
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <%= f.label t "full_name" %>
+          <%= f.text_field :full_name, class: "height-input-second",
+            disabled: true, value: current_user.full_name %>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <%= f.label t "phone" %>
+          <%= f.text_field :phone_patient, class: "height-input-second",
+            value: current_user.phone %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.label t "email" %>
+          <%= f.email_field :email, class: "height-input-second",
+            disabled: true, value: current_user.email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.label t "address" %>
+          <%= f.text_field :address_patient, class: "height-input-second",
+            value: current_user.address %>
+        </div>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <%= f.label t "doctor" %>
+        <%= f.select :doctor_id, doctors,
+          {}, class: "select-be height-input-second" %>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <%= f.label t "day" %>
+        <%= f.date_field :day, class: "height-input-second",
+         min: earliest_day_register, max: latest_day_register %>
+      </div>
+      <div>
+        <div class="col-lg-2 col-md-12">
+          <%= f.label t "start_time" %>
+          <%= f.select :start_time, from_time_all,
+            {}, class: "select-be height-input-second" %>
+        </div>
+      </div>
+    </div>
+    <div class="row padding-message">
+      <div class="col col-md-12 message-nice">
+        <%= f.text_area :message, placeholder: t("message") %>
+      </div>
+    </div>
+    <div class="row text">
+      <div class="col col-md-12">
+        <%= f.submit t("submit"), class: "custom_btn btn-submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>

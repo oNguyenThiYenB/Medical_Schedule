@@ -1,0 +1,147 @@
+<% provide :title, t("home") %>
+
+<div class="welcome_areaa">
+  <div class="container">
+    <div class="welcome_slider owl-carousel">
+      <div class="single_welcome_slider">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-6">
+            <div class="welcome_content">
+              <h1><%= t "welcome_app" %></h1>
+              <p><%= t "decription" %></p>
+              <%= link_to about_path, class:"custom_btn", data: {turbolinks: "false"} do %>
+                <%= t "know_more" %><i class="zmdi zmdi-plus"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="w_man"><%= image_tag "welcome1.png" %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cbox_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="single_cbox">
+          <div class="cbox_title">
+            <div class="cbox_icon"><%= image_tag "icon1.png" %></div>
+            <h4><%= t "emergency_cases" %></h4>
+          </div>
+          <p><%= t "emergency_decription" %></p>
+          <div class="call_btn">
+            <span><%= t "call_us" %>: </span>
+            <%= link_to t("emergency"), "tel:062109-9222"%>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="single_cbox">
+          <div class="cbox_title">
+            <div class="cbox_icon"><%= image_tag "icon2.png" %></div>
+            <h4><%= t "appointment" %></h4>
+          </div>
+          <p><%= t "appointment_decription" %>: </p>
+          <%= link_to new_appointment_path, data: {turbolinks: "false"} do %>
+            <%= t "appointment" %><i class="zmdi zmdi-plus"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="single_cbox">
+          <div class="cbox_title">
+            <div class="cbox_icon"><%= image_tag "icon3.png" %></div>
+            <h4><%= t "doctor_timetables" %></h4>
+          </div>
+          <p><%= t "calender_decription" %></p>
+          <%= link_to "#", data: {turbolinks: "false"} do %>
+            <%= t "calender" %><i class="zmdi zmdi-plus"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="news_area background_grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="section_title">
+          <h1><%= t "working_time" %></h1>
+        </div>
+        <div class="about_left_content">
+          <div class="working_box">
+            <h4><%= t "app_name" %></h4>
+            <ul>
+              <Li><%= t "mon_fri" %></Li>
+              <Li><%= t "sat" %></Li>
+              <Li><%= t "sun" %></Li>
+              <Li><%= t "mon" %></Li>
+              <Li><%= t "tue" %></Li>
+              <Li><%= t "ambulance_service" %></Li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="section_title">
+          <h1><%= t "news" %></h1>
+        </div>
+        <div class="latest_news">
+          <%= link_to "#", class:"single_latest_news", data: {turbolinks: "false"} do %>
+            <span class="l_img"><%= image_tag "news1.jpg" %></span>
+            <h5><%= t "new_1_title" %></h5>
+            <span><%= t "new_1_time" %></span>
+            <p><%= t "new_1_content" %></p>
+          <% end %>
+          <%= link_to "#", class:"single_latest_news", data: {turbolinks: "false"} do %>
+            <span class="l_img"><%= image_tag "news2.jpg" %></span>
+            <h5><%= t "new_1_title" %></h5>
+            <span><%= t "new_1_time" %></span>
+            <p><%= t "new_1_content" %></p>
+          <% end %>
+          <%= link_to "#", class:"single_latest_news", data: {turbolinks: "false"} do %>
+            <span class="l_img"><%= image_tag "news3.jpg" %></span>
+            <h5><%= t "new_1_title" %></h5>
+            <span><%= t "new_1_time" %></span>
+            <p><%= t "new_1_content" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="counter_area">
+  <div class="container">
+    <div class="row text-center justify-content-center">
+      <div class="col-md-3 col-6">
+        <div class="single_counter">
+          <h1><span class="count"><%= t "total_staff" %></span></h1>
+          <span><%= t "staff" %></span>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="single_counter">
+          <h1><span class="count"><%= t "total_experience" %></span>+</h1>
+          <span><%= t "experience" %></span>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="single_counter">
+          <h1><span class="count"><%= t "total_smiler" %></span></h1>
+          <span><%= t "smiler" %></span>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="single_counter">
+          <h1><span class="count"><%= t "total_blood" %></span></h1>
+          <span><%= t "blood_donate" %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<tr>
+  <td class="centered no_content"><%= numbered params[:page], patient_counter, Settings.per_page %></td>
+  <td class="centered no_content"><%= image_tag patient.display_image, class: "user_avatar" %></td>
+  <td class="name_content"><%= patient.full_name %></td>
+  <td class="name_content"><%= patient.user_name %></td>
+  <td class="name_content"><%= patient.email %></td>
+  <td class="phone_content"><%= patient.phone %></td>
+  <td class="name_content"><%= patient.address %></td>
+  <td class="fit_content">
+    <% if patient.files.attached? %>
+      <% patient.files.each do |file| %>
+        <%= link_to get_file_name(patient, file), url_for(file), class: "space file_name" %>
+      <% end %>
+    <% else %>
+      <h6><%= t "no_file" %></h6>
+    <% end %>
+  </td>
+  <td class="centered fit_content">
+    <%= link_to t("edit"), edit_admin_patient_path(patient), class: "btn btn-primary btn-size", method: :get %>
+    <%= link_to t("delete"), admin_patient_path(patient), method: :delete, data: {confirm: t("are_you_sure_delete")}, class: "btn btn-danger btn-size" %>
+  </td>
+</tr>
