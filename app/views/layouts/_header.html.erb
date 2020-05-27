@@ -31,11 +31,12 @@
                 <li><b><%= link_to t("signin"), new_user_session_path , class:"btn-signin btn" %></b></li>
               <% end %>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to "#", data: {turbolinks: "false"} do %>
                   <%= t "language" %><i class="zmdi zmdi-caret-down"></i></b>
                 <% end %>
                 <ul>
-                  <li><%= link_to "English", locale: "en" %></li>
+                  <li><%= link_to "English", { locale: :en }, data: {turbolinks: "false"} %></li>
+                  <li><%= link_to "Vietnamese", { locale: :vi }, data: {turbolinks: "false"} %></li>
                 </ul>
               </li>
             </ul>

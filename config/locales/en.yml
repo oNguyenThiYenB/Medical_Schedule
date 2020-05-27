@@ -1,4 +1,6 @@
 en:
+  en: English
+  vi: Vietnamese
   time:
     formats:
       short: "%H:%M"
@@ -16,7 +18,6 @@ en:
   change_pass: Change my password
   ignore_mail: If you didn't request this, please ignore this email.
   notice_pass: Your password won't change until you access the link above and create a new one.
-  en: English
   app_name: Medical Schedule
   welcome_app: Welcome to our Medical Schedule App!
   contact: Contact us
@@ -138,7 +139,7 @@ en:
   from_time: From time
   to_time: To time
   message: Message
-  day: Day
+  day: Day of appointment
   no_result: No result!
   search_result: Search result
   schedule: Doctor Schedules
@@ -154,7 +155,7 @@ en:
   settings: Settings
   update_your_profile: Update profile
   update_doctor_profile: Update Doctor's profile
-  profile_updated: Profile update
+  profile_updated: Profile updated
   not_success: Not update success
   id: ID
   doctor_name: Doctor name
@@ -197,7 +198,6 @@ en:
   patient_info: Patient Information
   no_file: No file upload!
   doctor_schedules: Doctor Schedules
-  doctor_list: Doctors List
   create_account_success: Create account successfully!
   account_deleted: Account deleted sucessfully!
   admin_dashboard: Admin Dashboard
@@ -210,7 +210,7 @@ en:
   edit_information_doctor: edit information doctor
   update_information_doctor: Update information doctor
   doctor_updated: Doctor update
-  doctor_not_success: Doctor not success
+  doctor_not_update: Doctor not success
   create_doctor_success: create doctor success
   create_doctor_not_success: create doctor not success
   create: Create
@@ -228,7 +228,6 @@ en:
   require_current_pass: (we need your current password to confirm your changes)
   current_password: Current password
   mini_character: characters minimum
-  doctor_list: Doctor list
   you_are_not_authorized_to_access_this_page: You are not authorized to access this page.
   a_z: A -> Z
   z_a: Z -> A
@@ -243,3 +242,11 @@ en:
   obituary: Obituary Tells Brutal  of Sister’s
   articles: Articles
   faculty: Faculty
+  select_faculty: Select Faculty
+  select_doctor: Select Doctor
+  select_time: Select time
+  select_day_and_doctor_before: Please select doctor and day before!
+  none: None
+  select_faculty_before: Please select faculty before!
+  select_date: Select date
+  have_insurance: Do you have insurance?

@@ -1,7 +1,6 @@
 class DoctorsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :load_doctor, only: %i(show edit update)
-  # before_action :correct_doctor, only: %i(edit update)
 
   load_and_authorize_resource
 

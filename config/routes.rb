@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en/ do
+  scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
     get "/home", to: "static_pages#home"
@@ -22,7 +22,13 @@ Rails.application.routes.draw do
     end
     resources :articles
     resources :staffs
-    resources :appointments
+    resources :appointments do
+      collection do
+        get "/for_facuty_id/:faculty_id", to: "appointments#for_faculty_id"
+        get "/for_doctor_id/:doctor_id", to: "appointments#for_doctor_id"
+        get "for_date_picker(/:date_picker)", to: "appointments#for_date_picker"
+      end
+    end
     resources :admins
     namespace :admin do
       resources :staffs

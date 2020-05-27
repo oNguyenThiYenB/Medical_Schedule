@@ -19,7 +19,7 @@ imgsize5: 5
 resize_to_limit: [200, 200]
 image_accept: "image/jpeg,image/gif,image/png"
 awesome_icon: "https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-limit_day: 7
+limit_day: 1
 max_day: 14
 limit_time: -7200
 accept: 1

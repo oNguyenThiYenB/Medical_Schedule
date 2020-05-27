@@ -34,7 +34,7 @@ class Admin::DoctorsController < Admin::BaseController
     flash[:success] = t "doctor_updated"
     redirect_to admin_doctors_path
   rescue ActiveRecord::RecordInvalid
-    flash[:danger] = t "doctor_not_success"
+    flash[:danger] = t "doctor_not_update"
     render :edit
   end
 

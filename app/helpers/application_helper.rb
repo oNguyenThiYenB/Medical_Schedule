@@ -25,4 +25,8 @@ module ApplicationHelper
 
     [:admin, object]
   end
+
+  def faculties
+    Faculty.pluck :faculty_name, :id
+  end
 end
