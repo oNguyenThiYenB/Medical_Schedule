@@ -1,4 +1,4 @@
-<div class="contact_form">
+<div class="contact_form appointment_form">
   <%= form_for @appointment do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <% if current_user.present? %>
@@ -31,21 +31,34 @@
     <% end %>
     <div class="row">
       <div class="col-lg-6 col-md-12">
+        <%= f.label t "faculty" %>
+        <%= f.select :faculty_id, faculties, {include_blank: t("select_faculty")},
+          { class: "select-be height-input-second faculty_select" } %>
+      </div>
+      <div class="col-lg-6 col-md-12">
         <%= f.label t "doctor" %>
-        <%= f.select :doctor_id, doctors,
-          {}, class: "select-be height-input-second" %>
+        <%= f.select :doctor_id, doctors, {include_blank: t("select_doctor")},
+          { class: "select-be height-input-second doctor_select" } %>
       </div>
-      <div class="col-lg-4 col-md-12">
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 date_picker">
         <%= f.label t "day" %>
-        <%= f.date_field :day, class: "height-input-second",
-         min: earliest_day_register, max: latest_day_register %>
+        <%= f.text_field :day, {readonly: "readonly",
+          class: "select-be height-input-second datepicker" }%>
       </div>
-      <div>
-        <div class="col-lg-2 col-md-12">
-          <%= f.label t "start_time" %>
-          <%= f.select :start_time, from_time_all,
-            {}, class: "select-be height-input-second" %>
-        </div>
+      <div class="col-lg-6 col-md-12 time_select_area">
+        <%= f.label t "start_time" %>
+        <%= f.select :shift_work_id, from_time_all, {include_blank: t("select_time")},
+            { class: "select-be height-input-second time_select" } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 insurance">
+        <%= f.label t("have_insurance"), class: "checkbox inline" do %>
+          <%= f.check_box :insurance, class: "remember_box" %>
+          <span><%= t "have_insurance" %></span>
+        <% end %>
       </div>
     </div>
     <div class="row padding-message">

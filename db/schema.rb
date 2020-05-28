@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_164953) do
+ActiveRecord::Schema.define(version: 2020_05_26_072335) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -36,17 +36,21 @@ ActiveRecord::Schema.define(version: 2020_05_16_164953) do
   create_table "appointments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "patient_id"
     t.bigint "doctor_id"
+    t.bigint "faculty_id"
     t.integer "status", default: 0
-    t.time "start_time"
-    t.time "end_time"
     t.string "phone_patient"
     t.string "address_patient"
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "day"
+    t.bigint "shift_work_id"
+    t.integer "number"
+    t.boolean "insurance", default: false
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["faculty_id"], name: "index_appointments_on_faculty_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
+    t.index ["shift_work_id"], name: "index_appointments_on_shift_work_id"
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -102,13 +106,11 @@ ActiveRecord::Schema.define(version: 2020_05_16_164953) do
   end
 
   create_table "shift_works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "doctor_id"
     t.time "start_time"
     t.time "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "day"
-    t.index ["doctor_id"], name: "index_shift_works_on_doctor_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -139,4 +141,5 @@ ActiveRecord::Schema.define(version: 2020_05_16_164953) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointments", "shift_works"
 end

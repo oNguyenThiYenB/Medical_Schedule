@@ -88,18 +88,35 @@ end
 end
 
 8.times do |n|
-    ShiftWork.create!(doctor_id: 2,
-    start_time: Faker::Time.forward(days: 3, period: :day),
-    end_time: Faker::Time.forward(days: 3, period: :day))
+    minute = (n%2 == 0) ? ":00" : ":30"
+    ShiftWork.create!(
+    start_time: Time.zone.parse("#{7 + n/2}" + minute),
+    end_time: Time.zone.parse("#{9 + n/2}" + minute))
 end
 
 8.times do |n|
-  Appointment.create!(doctor_id: 2, patient_id:22+n, status: 1,
+  minute = (n%2 == 0) ? ":00" : ":30"
+  ShiftWork.create!(
+  start_time: Time.zone.parse("#{12 + n/2}" + minute),
+  end_time: Time.zone.parse("#{12 + n/2}" + minute))
+end
+
+8.times do |n|
+  Appointment.create!(shift_work_id: 1, doctor_id: 1, faculty_id: 1, patient_id:22+n, status: 1,
   phone_patient: "0343934499",
   address_patient: "Ngach 67 Goc De",
   day: Date.today + n,
-  start_time: "15:15:15",
-  end_time: "17:15:15")
+  number: n+1,
+  insurance: (n%2 == 0) ? true : false)
+end
+
+7.times do |n|
+  Appointment.create!(shift_work_id: n+2, doctor_id: 1, faculty_id: 1, patient_id:22+n, status: 1,
+  phone_patient: "0343934499",
+  address_patient: "Ngach 67 Goc De",
+  day: Date.today + n,
+  number: n+9,
+  insurance: (n%2 == 0) ? true : false)
 end
 
 8.times do |n|

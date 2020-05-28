@@ -3,6 +3,7 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
     create_table :appointments do |t|
       t.references :patient
       t.references :doctor
+      t.references :faculty
       t.integer :status
       t.datetime :from_time
       t.datetime :to_time

@@ -1,7 +1,9 @@
 class AppointmentsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :new
+  skip_before_action :authenticate_user!, only: %i(new for_faculty_id for_doctor_id for_date_picker)
   before_action :find_appointmentpointment, only: %i(update destroy)
   load_and_authorize_resource
+
+  include AppointmentHelper
 
   def new
     @appointment = Appointment.new
@@ -13,10 +15,42 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    params[:appointment][:end_time] =
-      params[:appointment][:start_time].to_time(:utc).ago(Settings.limit_time)
+    byebug
+    # params[:appointment][:end_time] =
+    #   params[:appointment][:start_time].to_time(:utc).ago(Settings.limit_time)
     @appointment = current_user.appointments.build appointment_params
     created_appointment
+  end
+
+  def for_faculty_id
+    @doctors = Doctor.includes(:doctor_faculties).where("doctor_faculties.faculty_id = ?", params[:faculty_id]).references(:doctor_faculties)
+    respond_to do |format|
+      format.json  { render :json => @doctors }
+    end
+  end
+
+  def for_doctor_id
+    # @not_confirmed = [:waiting, :cancle]
+    current_date = Date.today
+    occupied_full_dates = Appointment.find_appointments_by_doctor_id_from_current_date(params[:doctor_id], current_date)&.
+      by_confirmed([:waiting, :cancle])&.group(:day).count.select { |day, count| count == 16 }.keys
+    @occupied_full_dates_formated = occupied_full_dates_formated(occupied_full_dates)
+    respond_to do |format|
+      format.json  { render :json => @occupied_full_dates_formated }
+    end
+  end
+
+  def for_date_picker
+    occupied_appointments_by_day = Appointment.find_appointments_by_doctor_id_and_day(params[:doctor_id], params[:date_picker].to_date)&.
+      by_confirmed([:waiting, :cancle])
+    shift_work_id_arr = occupied_appointments_by_day.map do
+      |appointment| appointment.shift_work_id
+    end
+    free_shift_works_by_day = ShiftWork.by_shift_work_id(shift_work_id_arr)
+    @free_time_by_day = time_format(free_shift_works_by_day)
+    respond_to do |format|
+      format.json  { render :json => @free_time_by_day }
+    end
   end
 
   def destroy

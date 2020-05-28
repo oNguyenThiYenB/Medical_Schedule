@@ -1,5 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min';
 @import 'color.scss';
 
 /* mixins, variables, etc. */
@@ -34,6 +35,12 @@ input, textarea, select, .uneditable-input {
   // border-radius: 2px;
   // -webkit-box-shadow: 0 3px 6px #ccc;
   // box-shadow: 0 3px 6px #ccc;
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    max-width: 100%
+  }
 }
 
 .row_profile {
@@ -257,11 +264,26 @@ p {
   border: none;
   height: 58px;
   color: $gray-char;
+  margin-bottom: 30px;
+  // background: #F5F5F5;
+  // border: 1px solid lightgrey;
 }
 
-.height-input {
-  height: 58px !important;
-}
+// .remember_box {
+//   height: 48px;
+// }
+
+// .insurance {
+//   height: 48px;
+// }
+
+// .height-input {
+//   height: 58px;
+// }
+
+// .contact_form input {
+//   height: 48px;
+// }
 
 .p-record {
   margin-left: 12px;

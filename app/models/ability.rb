@@ -3,7 +3,7 @@ class Ability
 
   def initialize user
     can :read, Doctor
-    can :new, Appointment
+    can [:new, :for_faculty_id, :for_doctor_id, :for_date_picker], Appointment
     return unless user
 
     can [:show, :update], User, id: user.id
@@ -19,7 +19,7 @@ class Ability
     when "Doctor"
       can :read, Comment
     when "Patient"
-      can :create, Appointment
+      can [:create], Appointment
       can :manage, Comment, patient_id: user.id
     end
   end

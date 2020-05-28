@@ -1,0 +1,246 @@
+vi:
+  en: Tiếng Anh
+  vi: Tiếng Việt
+  time:
+    formats:
+      short: "%H:%M"
+  hello: Hello world
+  hi: Xin chào
+  active: Kích hoạt
+  activated: Tài khoản đã được kích hoạt thành công!
+  not_activated: Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra email để kích hoạt tài khoản.
+  invalid_link: Đường dẫn không hợp lệ!
+  check_mail: vui lòng kiểm tra email để kích hoạt tài khoản của bạn!
+  account_activation: Kích hoặt tài khoản.
+  not_received_email: Bạn không nhận được emai hướng dẫn xác nhận?
+  active_account: Chào mừng bạn đến với Ứng dụng Medical Schedule! Vui lòng truy cập vào liên kết dưới đây để kích hoạt tài khoản của bạn.
+  reset_pass: Ai đó đã yêu cầu một liên kết để thay đổi mật khẩu của bạn. Nếu bạn làm điều này, bạn có thể  thay đổi mật khẩu thông qua liên kết dưới đây.
+  change_pass: Thay đổi mật khẩu của tôi
+  ignore_mail: Nếu bạn không yêu cầu điều này, xin vui lòng bỏ qua email này.
+  notice_pass: Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới.
+  app_name: Medical Schedule
+  welcome_app: Chào mừng bạn đến với Ứng dụng Medical Schedule!
+  contact: Liên hệ
+  phone_number: + 8435330333
+  email: yennguyen26101998@gmail.com
+  address: Ha Noi, Viet Nam
+  services: Liên kết dịch vụ
+  appointment: Lịch khám
+  doctor: Bác sỹ
+  patient: Bệnh nhân
+  language: Ngôn ngữ
+  home: Trang chủ
+  staff_list: Danh sách Nhân viên hành chính
+  doctor_list: Danh sách Bác sỹ
+  doctor_detail: Chi tiết về Bác sỹ
+  about: Giới thiệu
+  signin: Đăng nhập
+  signup: Đăng ký
+  decription: Alongside Rouhani Referring to the marginalisation of life reformists after the disputed presidential vote then.
+  emergency_cases: Cấp cứu
+  emergency_decription: Nếu bạn cần gọi xe cứu thương, chúng tôi luôn ở đây.
+  call_us: Gọi ngay cho chúng tôi
+  emergency: (062) 109-9222
+  apointment_decription: Bạn cần gặp trực tiếp bác sĩ để kiểm tra sức khỏe, đặt lịch hẹn trực tuyến tại đây
+  doctor_timetables: Lịch làm việc Bác sỹ
+  calender: Lịch trình
+  calender_decription: Bác sĩ có thể kiểm tra lịch khám của họ ở đây sau khi đăng nhập.
+  working_time: Thời gian làm việc
+  mon_fri: Thứ Hai - Thứ Sáu 08:00 - 22:00
+  sat: Thứ Bảy - 10:00 - 19:00
+  sun: Chủ Nhật - Chỉ phục vụ cấp cứu
+  mon: Thứ Hai - 08:00 - 22:00
+  tue: Thứ Ba - 8:00 – 19:00
+  ambulance_service: Dịch vụ xe cấp cứu 24/7
+  copy_right: ©2018 Medical Schedule.All Rights Reserved. Designed by
+  articles: Tin tức mới nhất
+  article_1_title: Your Medical Records are Safe
+  article_1_time: 21 Octobar 2017
+  article_1_content: Clicking sounds were generted size of cig arette smoke particles chemical compositions
+  total_staff: 108
+  staff: Đội ngũ nhân viên
+  staffs: Quản lý nhân viên hành chính
+  total_experience: 20
+  experience: Số năm kinh nghiệm
+  total_smiler: 1450
+  smiler: Happy smiler
+  total_blood: 646
+  blood_donate: Blood Donate
+  create_account: Tạo tài khoản
+  user_name: Tên đăng nhập
+  mail: Email
+  pass: Mật khẩu
+  pass_confirm: Xác nhận mặt khẩu
+  new_user: Bạn là người dùng mới?
+  signup_now: Đăng ký ngay tại đây!
+  remember: Ghi Nhớ
+  remember_me: Ghi nhớ đăng nhập
+  invalid: Email/ Mật khẩu không hợp lệ
+  not_found: Không tìm thấy người dùng
+  admins: Admins
+  create_doctor: Tạo mới bác sỹ
+  manager_user: Quản lý người dùng
+  manager_doctor: Quản lý Bác sỹ
+  manager_staff: Quản lý nhân viên hành chính
+  manager_patient: Quản lý Bệnh nhân
+  patients: Bệnh nhân
+  appointment: Lịch khám
+  user_name: Tên người dùng
+  update: Cập nhật
+  email: Địa chỉ email
+  password: Mật khẩu
+  password_confirmation: xác nhận mật khẩu
+  position: Vị trí
+  room: Phòng
+  work_room: Phòng làm việc
+  academy: Trình độ
+  experience: Kinh nghiệm
+  department: Phòng ban
+  submit: Gửi
+  hust: HUST
+  action: Hoạt động
+  edit: Chỉnh sửa
+  edit_falsed: Chỉnh sửa không thành công!
+  delete: Xoá
+  more_info: Thêm thông tin
+  staffs: Nhân viên hành chính
+  edit_staff_account: Chỉnh sửa tài khoản Nhân viên hành chính
+  edit_doctor_account: Chỉnh sửa tài khoản Bác sỹ
+  edit_patient_account: Chỉnh sửa tài khoản Bệnh nhân
+  edit_admin_account: Chỉnh sửa tài khoản Admin
+  patient: Bệnh nhân
+  patient_list: Danh sách bệnh nhân
+  number_doctor: 150
+  number_staff: 120
+  number_patient: 200
+  number_appointment: 150
+  search: Tìm kiếm
+  signin_require: Vui lòng Đăng nhập
+  signout: Đăng xuất
+  account: Tài khoản của tôi
+  university: Student at Australian National University and the lead author of a paper published in Nature on Wednesday that may hold the answer. Mr. Jones and his colleagues developed a model that simulates what’s happening in our planet’s mantle beneat the crust that we live on, offering a window to the center of the.
+  gender: Giới tính
+  male: Nam
+  female: Nữ
+  select_your_service: Chọn loại dịch vụ
+  date_of_birth: Ngày sinh
+  email: Email
+  phone: Số điện thoại
+  reservation_date: Ngày đặt trước
+  address: Đại chỉ
+  status: Trạng thái
+  medical_record: Hồ sơ bệnh án
+  appointment_time: Thời gian
+  full_name: Họ và tên
+  from_time: Thời gian bắt đầu
+  to_time: Tới
+  message: Tin nhắn
+  day: Ngày khám
+  no_result: Không tìm thấy kết quả!
+  search_result: Kết quả tìm kiếm
+  schedule: Lịch Bác sỹ
+  appointment_list_with_doctor: Danh sách lịch khám theo bác sỹ
+  appointment_created: Đã tạo yêu cầu đặt lịch thành công! Đang chờ xác nhận từ phòng khám.
+  appointment_not_created: Tạo êu cầu đặt lịch không thành công!
+  must_be_a_valid_file_format: Tập tin phải có định dạng hợp lệ
+  should_be_less_than_5MB: (Dung lượng dưới 5MB)
+  profile: Hồ sơ cá nhân
+  edit_profile: Chỉnh sửa hồ sơ
+  save_changes: Lưu thay đổi
+  save: Lưu
+  settings: Cài đặt
+  update_your_profile: Cập nhật hồ sơ
+  update_doctor_profile: Cập nhật hồ sơ bác sỹ
+  profile_updated: Đã cập nhật hồ sơ
+  not_success: Cập nhật không thành công
+  id: ID
+  doctor_name: Tên bác sỹ
+  patient_name: Tên bệnh nhân
+  appointment_list: Danh sách lịch khám
+  accept: Xác nhận
+  cancel: Huỷ bỏ
+  start_time: Thời gian
+  end_time: End time
+  new_appointment: Tạo lịch khám
+  not_allowed: Bạn không có quyền truy cập trang này!
+  comments: Bình luận
+  comment_at: Đã bình luận lúc
+  options: Tuỳ chọn
+  enter_comment: Nhập bình luận
+  add_comment: Thêm bình luận
+  reply: Trả lời
+  comment_not_found: Không tìm thấy bình luận!
+  comment_remove: Bình luận đã bị xoá!
+  delete_comment_failed: Xoá bình luận không thành công
+  create_comment_success: Bình luận không thành công!
+  image: Hình ảnh
+  comment:
+    zero: Bình luận (0 bình luận)
+    one: Bình luận (1 bình luận)
+    other: Bình luận (%{count} bình luận)
+  appointment_canceled: Lịch khám đã bị huỷ
+  cancel_confirm: Huỷ bỏ xác nhận
+  are_you_sure_delete: Bạn có chắc chắn muốn xoá?
+  are_you_sure_you_want_to_accept: Bạn có chắc chắn muốn xác nhận?
+  appointment_accepted: Lịch khám đã được xác nhận
+  appointment_not_accepted: Lịch khám không được xác nhận
+  already_have_an_appointment: Đã có lịch khám trong khoảng thời gian này
+  success: Thành công
+  canceled: Đã huỷ
+  valid_image: Image must be a valid image format
+  image_size: Nhỏ hơn 5MB
+  choose_smaller_file: Kích thước tệp tối đa là 5MB. Vui lòng chọn một tập tin nhỏ hơn.
+  description: Mô tả
+  patient_info: Thông tin bệnh nhân
+  no_file: Không có tập tin nào được upload!
+  doctor_schedules: Lịch làm việc của bác sỹ
+  create_account_success: Tạo tài khoản thành công!
+  account_deleted: Xoá tài khoản thành công!
+  admin_dashboard: Admin Dashboard
+  admin_list:  Danh sách Admins
+  admin: Admin
+  stt: STT
+  doctor_deleted: tài khoản Bác sỹ đã bị xoá
+  doctor_not_deleted: xoá tài khoản Bác sỹ không thành công
+  edit_information_doctor: Chỉnh sửa thông tin Bác sỹ
+  update_information_doctor: Cập nhật thông tin Bác sỹ
+  doctor_updated: Đã cập nhật thông tin Bác sỹ
+  doctor_not_update: Cập nhật thông tin bác sỹ không thành công
+  create_doctor_success: tạo tài khoản Bác sỹ thành công
+  create_doctor_not_success: tạo tài khoản Bác sỹ không thành công
+  create: Tạo mới
+  not_create_success: Tạo không thành công
+  errors_blank: không được để trống
+  errors_not_a_number: không phải là số
+  errors_taken: đã được thực hiện
+  invalid_errors: is invalid
+  invalid: Email/ Mật khẩu không hợp lệ
+  have_account: Bạn đã có tài khoản?
+  signin_here: Đăng nhập tại đây!
+  forgot_password: Quên mật khẩu?
+  send_reset_link: Gửi cho tôi liên kết thiết lập lại mật khẩu
+  resend_reset_link: Gửi lại email hướng dẫn xác nhận
+  require_current_pass: (chúng tôi cần mật khẩu hiện tại của bạn để xác nhận thay đổi)
+  current_password: Mật khẩu hiện tại
+  mini_character: Số ký tự tối thiểu
+  you_are_not_authorized_to_access_this_page: Bạn không có quyền truy cập trang này.
+  a_z: A -> Z
+  z_a: Z -> A
+  articles_list: Danh sách bản tin
+  popular: Phổ biến
+  rencent: Gần đây
+  comments: Bình luận
+  know_more: Đọc tiếp
+  likes: "Like:"
+  comments: "Bình luận:"
+  show_articles: Xem tin tức
+  obituary: Obituary Tells Brutal of Sister’s
+  faculty: Khoa
+  select_faculty: Chọn khoa muốn khám
+  select_doctor: Chọn Bác sỹ
+  select_time: Chọn thời gian
+  select_day_and_doctor_before: Bạn cần chọn Bác sỹ với ngày khám trước!
+  none: Không có
+  select_faculty_before: Bạn cần chọn Khoa trước!
+  select_date: Chọn ngày muốn khám
+  have_insurance: Bạn có thẻ bảo hiểm y tế?
