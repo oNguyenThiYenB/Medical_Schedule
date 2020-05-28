@@ -1,0 +1,21 @@
+<div class="contact_form">
+  <%= form_for @article do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="row padding-message">
+      <div class="col col-md-12 message-nice">
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+        <%= f.label t("title") %>
+        <%= f.text_area :title, class: "form-control" %>
+
+        <%= f.label t("content") %>
+        <%= f.cktext_area :content, ckeditor: { language: 'us'} %>
+      </div>
+    </div>
+    <div class="row text">
+      <div class="col col-md-12">
+        <%= f.submit t("submit"), class: "btn custom_btn btn-submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>

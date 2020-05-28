@@ -4,3 +4,4 @@ Rails.application.config.assets.precompile += %w( i18n.js translations.js )
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 Rails.application.config.assets.precompile += %w( admins.css )
+Rails.application.config.assets.precompile += %w[ckeditor/config.js]

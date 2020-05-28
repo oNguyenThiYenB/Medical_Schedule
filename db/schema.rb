@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_072335) do
-
+ActiveRecord::Schema.define(version: 2020_05_27_095506) do
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,13 +52,35 @@ ActiveRecord::Schema.define(version: 2020_05_26_072335) do
     t.index ["shift_work_id"], name: "index_appointments_on_shift_work_id"
   end
 
+  create_table "article_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "article_category_name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "staff_id"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
-    t.index ["staff_id"], name: "index_articles_on_staff_id"
+    t.string "type"
+    t.string "status"
+    t.bigint "article_category_id"
+    t.bigint "user_id"
+    t.index ["article_category_id"], name: "index_articles_on_article_category_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -142,4 +163,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_072335) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "shift_works"
+  add_foreign_key "articles", "article_categories"
+  add_foreign_key "articles", "users"
 end

@@ -8,6 +8,10 @@ class ArticlesController < ApplicationController
 
   def show; end
 
+  def new
+    @article = Article.new
+  end
+
   private
 
   def load_article
