@@ -56,6 +56,8 @@ en:
   articles: Latest articles
   article_1_title: Your Medical Records are Safe
   article_1_time: 21 Octobar 2017
+  title: "Article title:"
+  content: "Content:"
   article_1_content: Clicking sounds were generted size of cig arette smoke particles chemical compositions
   total_staff: 108
   staff: Our staff
@@ -250,3 +252,5 @@ en:
   select_faculty_before: Please select faculty before!
   select_date: Select date
   have_insurance: Do you have insurance?
+  create_article_success: Created aticle successfully!
+  article_category: "Article category:"

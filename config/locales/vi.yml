@@ -56,6 +56,8 @@ vi:
   articles: Tin tức mới nhất
   article_1_title: Your Medical Records are Safe
   article_1_time: 21 Octobar 2017
+  title: "Tiêu đề bài viết:"
+  content: "Nội dung:"
   article_1_content: Clicking sounds were generted size of cig arette smoke particles chemical compositions
   total_staff: 108
   staff: Đội ngũ nhân viên
@@ -236,11 +238,13 @@ vi:
   show_articles: Xem tin tức
   obituary: Obituary Tells Brutal of Sister’s
   faculty: Khoa
-  select_faculty: Chọn khoa muốn khám
-  select_doctor: Chọn Bác sỹ
-  select_time: Chọn thời gian
+  select_faculty: "Chọn khoa muốn khám:"
+  select_doctor: "Chọn Bác sỹ:"
+  select_time: "Chọn thời gian:"
   select_day_and_doctor_before: Bạn cần chọn Bác sỹ với ngày khám trước!
   none: Không có
   select_faculty_before: Bạn cần chọn Khoa trước!
-  select_date: Chọn ngày muốn khám
+  select_date: "Chọn ngày muốn khám:"
   have_insurance: Bạn có thẻ bảo hiểm y tế?
+  create_article_success: Đã tạo bài viết thành công!
+  article_category: Thể loại bài viết

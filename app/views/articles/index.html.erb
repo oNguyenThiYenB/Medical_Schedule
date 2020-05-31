@@ -14,7 +14,20 @@
 <div class="blog_area">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 order-md-12">
+      <div class="col-md-8">
+        <h2 class="color-list total"><%= t "total" %>: <%= total_index_page @articles %></h2>
+      </div>
+      <% if !current_user&.patient? %>
+        <div class="col-md-4">
+          <%= link_to new_article_path, class: "custom_btn btn_size right_float" do %>
+            <%= t "add_news" %>
+            <i class="zmdi zmdi-plus"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
         <div class="row">
           <%= render @articles %>
         </div>

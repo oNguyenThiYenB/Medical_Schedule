@@ -261,29 +261,32 @@ p {
 }
 
 .select-be {
+  padding-left: 15px;
   border: none;
-  height: 58px;
+  height: 45px !important;
+  background-color: white;
+  border: 1px solid #d1d1d1;
   color: $gray-char;
   margin-bottom: 30px;
-  // background: #F5F5F5;
-  // border: 1px solid lightgrey;
 }
 
-// .remember_box {
-//   height: 48px;
-// }
+label {
+  margin-bottom: 10px;
+  // padding-left: 10px;
+}
 
-// .insurance {
-//   height: 48px;
-// }
+.contact_form input {
+  height: 45px !important;
+  background: $white;
+  margin-bottom: 30px;
+  border: 1px solid #d1d1d1;
+}
 
-// .height-input {
-//   height: 58px;
-// }
-
-// .contact_form input {
-//   height: 48px;
-// }
+.contact_form textarea {
+  background: $white;
+  margin-bottom: 30px;
+  border: 1px solid #d1d1d1;
+}
 
 .p-record {
   margin-left: 12px;
@@ -291,11 +294,13 @@ p {
 
 .padding-message{
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .btn-submit {
   width: 10px !important;
   background-color: $color-submit !important;
+  float: right;
 }
 
 .btn-width {
