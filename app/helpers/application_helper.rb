@@ -29,4 +29,8 @@ module ApplicationHelper
   def faculties
     Faculty.pluck :faculty_name, :id
   end
+
+  def total_index_page total_item
+    total_item.size
+  end
 end

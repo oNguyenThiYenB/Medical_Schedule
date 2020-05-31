@@ -1,15 +1,4 @@
 <% provide :title, t("articles") %>
-<div class="appoinment_form_area p100">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <h2 class="color-list centered"><b><%= t "create_news" %></b></h2>
-        <%= render "articles/article_form" %>
-      </div>
-      <%= render "slidebar" %>
-    </div>
-  </div>
-</div>
 <div class="breadvroumb_area">
   <div class="container">
     <div class="row text-center">
@@ -19,6 +8,17 @@
           <%= link_to t("home"), root_url %>/<%= t "appointment" %>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="appoinment_form_area p100">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h4 class="color-list centered"><b><%= t "create_news" %></b></h4>
+        <%= render "articles/article_form" %>
+      </div>
+      <%= render "slidebar" %>
     </div>
   </div>
 </div>

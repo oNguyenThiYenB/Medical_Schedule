@@ -5,26 +5,26 @@
       <div class="row">
         <div class="col-lg-6 col-md-12">
           <%= f.label t "full_name" %>
-          <%= f.text_field :full_name, class: "height-input-second",
+          <%= f.text_field :full_name, class: "select-be",
             disabled: true, value: current_user.full_name %>
         </div>
         <div class="col-lg-6 col-md-12">
           <%= f.label t "phone" %>
-          <%= f.text_field :phone_patient, class: "height-input-second",
+          <%= f.text_field :phone_patient, class: "select-be",
             value: current_user.phone %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <%= f.label t "email" %>
-          <%= f.email_field :email, class: "height-input-second",
+          <%= f.email_field :email, class: "select-be",
             disabled: true, value: current_user.email %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <%= f.label t "address" %>
-          <%= f.text_field :address_patient, class: "height-input-second",
+          <%= f.text_field :address_patient, class: "select-be",
             value: current_user.address %>
         </div>
       </div>
@@ -33,24 +33,24 @@
       <div class="col-lg-6 col-md-12">
         <%= f.label t "faculty" %>
         <%= f.select :faculty_id, faculties, {include_blank: t("select_faculty")},
-          { class: "select-be height-input-second faculty_select" } %>
+          { class: "select-be faculty_select" } %>
       </div>
       <div class="col-lg-6 col-md-12">
         <%= f.label t "doctor" %>
         <%= f.select :doctor_id, doctors, {include_blank: t("select_doctor")},
-          { class: "select-be height-input-second doctor_select" } %>
+          { class: "select-be doctor_select" } %>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6 col-md-12 date_picker">
         <%= f.label t "day" %>
         <%= f.text_field :day, {readonly: "readonly",
-          class: "select-be height-input-second datepicker" }%>
+          class: "select-be datepicker" }%>
       </div>
       <div class="col-lg-6 col-md-12 time_select_area">
         <%= f.label t "start_time" %>
         <%= f.select :shift_work_id, from_time_all, {include_blank: t("select_time")},
-            { class: "select-be height-input-second time_select" } %>
+            { class: "select-be time_select" } %>
       </div>
     </div>
     <div class="row">

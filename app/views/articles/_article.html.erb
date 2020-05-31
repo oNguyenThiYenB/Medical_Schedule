@@ -16,7 +16,7 @@
         <% end %>
       </div>
       <h4><%= article.title %></h4>
-      <p class="hiddent-content"><%= article.content %></p>
+      <p class="hiddent-content"><%= raw(article.content) %></p>
       <%= link_to article_path(article.id), class: "read_btn" do %>
         <%= t "know_more" %>
         <i class="zmdi zmdi-pmmore lus"></i>
