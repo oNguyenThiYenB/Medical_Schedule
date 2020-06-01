@@ -30,6 +30,7 @@ delete_test: 100
 waiting: waiting
 accept: :accept
 cancel: :cancel
+remind_time: 57600
 new_page_size: 6
 number_like: 233
 number_comment: 123

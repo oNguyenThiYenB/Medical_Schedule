@@ -126,18 +126,19 @@ vi:
   female: Nữ
   select_your_service: Chọn loại dịch vụ
   date_of_birth: Ngày sinh
-  email: Email
-  phone: Số điện thoại
+  email: "Email:"
+  phone: "Số điện thoại:"
   reservation_date: Ngày đặt trước
-  address: Đại chỉ
+  address: "Địa chỉ:"
   status: Trạng thái
   medical_record: Hồ sơ bệnh án
   appointment_time: Thời gian
-  full_name: Họ và tên
+  full_name: "Họ và tên:"
   from_time: Thời gian bắt đầu
   to_time: Tới
-  message: Tin nhắn
-  day: Ngày khám
+  message: "Tin nhắn:"
+  message_here: Ghi chú (Triệu chứng bệnh, lịch sử khám...)
+  day: "Ngày khám:"
   no_result: Không tìm thấy kết quả!
   search_result: Kết quả tìm kiếm
   schedule: Lịch Bác sỹ
@@ -238,13 +239,21 @@ vi:
   show_articles: Xem tin tức
   obituary: Obituary Tells Brutal of Sister’s
   faculty: Khoa
-  select_faculty: "Chọn khoa muốn khám:"
-  select_doctor: "Chọn Bác sỹ:"
-  select_time: "Chọn thời gian:"
+  select_faculty: Chọn khoa muốn khám
+  select_doctor: Chọn Bác sỹ
+  select_time: Chọn thời gian
   select_day_and_doctor_before: Bạn cần chọn Bác sỹ với ngày khám trước!
   none: Không có
   select_faculty_before: Bạn cần chọn Khoa trước!
   select_date: "Chọn ngày muốn khám:"
   have_insurance: Bạn có thẻ bảo hiểm y tế?
   create_article_success: Đã tạo bài viết thành công!
-  article_category: Thể loại bài viết
+  article_category: "Thể loại bài viết:"
+  appointment_created_notification: Thông báo yêu cầu đặt lịch khám vừa được tạo
+  remind_appointment_time: Nhắc nhở về thời gian khám bệnh
+  create_appointment_notification: "Bạn vừa tạo một yêu cầu đặt lịch khám tại website Medical Schedule. Thông tin về lịch khám của bạn như sau:"
+  mail_appointment_result: Thông báo kết quả đặt lịch khám!
+  accepted_email: Bạn đã tạo một yêu cầu đặt lịch khám tại website Medical Schedule. Yêu cầu của bạn đã được chấp nhận. Vui lòng chuẩn bị đẩy đủ giấy tờ và đến phòng khám đúng thời gian đã hẹn để được bá sỹ kiểm tra sức khoẻ.
+  appointment_info: "Thông tin về lịch khám của bạn như sau:"
+  hope: Hy vọng bạn sẽ có những trải nghiệm tốt nhất với dịch vụ của chúng tôi! Xin chân thành cảm ơn!
+  cancel_email: Bạn đã tạo một yêu cầu đặt lịch khám tại website Medical Schedule. Vì một vài lý do, chúng tôi không thể chấp nhận yêu cầu của bạn. Vui lòng gửi yêu cầu đặt lịch vào một thời gian hoặc bác sỹ khác để chùng tôi có thể phục vụ bạn. Hoặc liên hệ trực tiếp với phòng khám của chúng tôi.

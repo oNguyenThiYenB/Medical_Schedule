@@ -1,0 +1,12 @@
+  <h1><%= t "app_name" %></h1>
+  <p>
+    <%= t "hi" %>
+      <%= @appointment.patient_full_name %>,
+  </p>
+  <p><%= t "create_appointment_notification" %>:</p>
+  <p><%= t "full_name" %>: <%= @appointment.patient_full_name %></p>
+  <p><%= t "phone" %>: <%= @appointment.phone_patient %></p>
+  <p><%= t "address" %>: <%= @appointment.address_patient %></p>
+  <p><%= t "address" %>: <%= @appointment.address_patient %></p>
+  <p><%= t "doctor" %>: <%= @appointment.doctor_full_name %></p>
+  <p><%= t "appointment_created" %></p>
