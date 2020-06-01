@@ -71,7 +71,7 @@ $(document).ready(function() {
     var faculty_id = $('.faculty_select').val();
     if (id_value_string == '' || faculty_id == '') {
       $('.doctor_select option').remove();
-      row = '<option value=' + '' + '>' + I18n.t("select_faculty_before") + '</option>';
+      row = '<option value=' + ' ' + ' >' + I18n.t("select_faculty_before") + '</option>';
       $(row).appendTo('.doctor_select');
       // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
       $('.date_select').removeClass('datepicker');
@@ -106,6 +106,7 @@ $(document).ready(function() {
     };
   });
 
+
   $('.datepicker').on('dp.change', function(e){
     var value_string = $(this).val();
     var pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
@@ -115,7 +116,7 @@ $(document).ready(function() {
 
     if (value_string == '' || doctor_id == '') {
       $('.time_select option').remove();
-      row = '<option value=' + '' + '>' + I18n.t("select_day_and_doctor_before") + '</option>';
+      row = '<option value=' + '' + ' style={ color: red }>' + I18n.t("select_day_and_doctor_before") + '</option>';
       $(row).appendTo('.time_select');
     } else {
       // Send the request and update sub category dropdown
@@ -147,7 +148,6 @@ $(document).ready(function() {
   });
 
   $('.time_select').change(function(){
-    debugger;
     var id_value_string = $(this).val();
     var doctor_id = $('.doctor_select').val();
     if (id_value_string == '' || doctor_id == '') {

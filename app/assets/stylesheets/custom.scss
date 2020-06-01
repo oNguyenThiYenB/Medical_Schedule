@@ -91,10 +91,6 @@ input, textarea, select, .uneditable-input {
   }
 }
 
-input {
-  height: none !important;
-}
-
 #error_explanation {
   text-align: left;
   color: $red_light;
@@ -276,7 +272,7 @@ label {
 }
 
 .contact_form input {
-  height: 45px !important;
+  height: 45px;
   background: $white;
   margin-bottom: 30px;
   border: 1px solid #d1d1d1;
@@ -598,4 +594,9 @@ th {
 
 .height-input-second {
   background-color: $select_bg;
+}
+
+.insurance_box {
+  width: auto !important;
+  height: fit-content !important;
 }

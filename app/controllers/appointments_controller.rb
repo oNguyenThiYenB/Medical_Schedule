@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i(new for_faculty_id for_doctor_id for_date_picker)
-  before_action :find_appointmentpointment, only: %i(update destroy)
+  before_action :find_appointment, only: %i(update destroy)
   load_and_authorize_resource
 
   include AppointmentHelper
@@ -15,11 +15,41 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    byebug
     # params[:appointment][:end_time] =
     #   params[:appointment][:start_time].to_time(:utc).ago(Settings.limit_time)
     @appointment = current_user.appointments.build appointment_params
     created_appointment
+    MailCreatedAppointmentJob.perform_later @appointment
+  end
+
+  def destroy
+    if @appointment.destroy
+      flash[:success] = t "appointment_canceled"
+      redirect_to request.referer || root_url
+    else
+      flash[:danger] = t "not_success"
+      redirect_to root_url
+    end
+  end
+
+  def update
+    if check_unduplicate_accepted
+      @appointment.update(status:
+      Appointment.statuses.key(params["appointment"]["status"].to_i))
+      check_status
+    elsif is_cancel_appointment?
+      @appointment.cancel!
+      flash[:success] = t "appointment_canceled"
+    else
+      flash[:danger] = t "already_have_an_appointment"
+    end
+    MailAppointmentResultJob.perform_later @appointment
+    if @appointment.accept?
+      byebug
+      MailIncomingAppointmentJob.set(wait_until: @appointment.day.to_time(:utc).ago(Settings.remind_time)).perform_later @appointment
+    end
+
+    redirect_to appointments_path
   end
 
   def for_faculty_id
@@ -53,30 +83,6 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  def destroy
-    if @appointment.destroy
-      flash[:success] = t "appointment_canceled"
-      redirect_to request.referer || root_url
-    else
-      flash[:danger] = t "not_success"
-      redirect_to root_url
-    end
-  end
-
-  def update
-    if check_unduplicate_accepted
-      @appointment.update(status:
-      Appointment.statuses.key(params["appointment"]["status"].to_i))
-      check_status
-    elsif is_cancel_appointment?
-      @appointment.cancel!
-      flash[:success] = t "appointment_canceled"
-    else
-      flash[:danger] = t "already_have_an_appointment"
-    end
-    redirect_to appointments_path
-  end
-
   private
 
   def appointment_params
@@ -93,7 +99,7 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  def find_appointmentpointment
+  def find_appointment
     @appointment = Appointment.find_by id: params[:id]
     return if @appointment
 
@@ -103,14 +109,14 @@ class AppointmentsController < ApplicationController
 
   def check_unduplicate_accepted
     Appointment.accept.appointment_exists(@appointment.doctor_id,
-                                          @appointment.start_time,
-                                          @appointment.day).blank?
+                                          @appointment.day,
+                                          @appointment.shift_work_id).blank?
   end
 
   def duplicate_waiting
     Appointment.waiting.appointment_exists(@appointment.doctor_id,
-                                           @appointment.start_time,
-                                           @appointment.day)
+                                            @appointment.day,
+                                            @appointment.shift_work_id)
   end
 
   def check_status

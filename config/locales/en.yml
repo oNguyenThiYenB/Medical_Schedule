@@ -140,7 +140,8 @@ en:
   full_name: Fullname
   from_time: From time
   to_time: To time
-  message: Message
+  message: "Message:"
+  message_here: Message here!
   day: Day of appointment
   no_result: No result!
   search_result: Search result
@@ -254,3 +255,11 @@ en:
   have_insurance: Do you have insurance?
   create_article_success: Created aticle successfully!
   article_category: "Article category:"
+  appointment_created_notification: Appointment Created Notification!
+  remind_appointment_time: Remind about Appointment time!
+  create_appointment_notification: You have just created a booking request at our Medical Schedule website. Your schedule information is as follows
+  mail_appointment_result: Appointment Result!
+  accepted_email: You have recently created a request to schedule an appointment at the Medical Schedule website. Your request has been accepted. Please come to the hospital at the right time for the doctor to conduct the examination.
+  appointment_info: Your schedule information is as follows
+  hope: Hope you will have the best experience with our service! Thank you!
+  cancel_email: You have recently created a request to schedule an appointment at the Medical Schedule website. For some reason, we were unable to accommodate your request. Please schedule an appointment at a different time or other doctor so we can serve you.

@@ -1,0 +1,19 @@
+  <h1><%= t "app_name" %></h1>
+  <h3><%= t "mail_appointment_result" %></h3>
+  <p>
+    <%= t "hi" %>
+      <%= @appointment.patient_full_name %>,
+  </p>
+  <% if @appointment.accept? %>
+    <p><%= t "accepted_email" %></p>
+    <p><%= t "appointment_info" %>:</p>
+    <p><%= t "full_name" %>: <%= @appointment.patient_full_name %></p>
+    <p><%= t "phone" %>: <%= @appointment.phone_patient %></p>
+    <p><%= t "address" %>: <%= @appointment.address_patient %></p>
+    <p><%= t "address" %>: <%= @appointment.address_patient %></p>
+    <p><%= t "doctor" %>: <%= @appointment.doctor_full_name %></p>
+    <p><%= t "hope" %></p>
+  <% elsif @appointment.cancel? %>
+    <p><%= t "cancel_email" %></p>
+    <p><%= t "hope" %></p>
+  <% end %>

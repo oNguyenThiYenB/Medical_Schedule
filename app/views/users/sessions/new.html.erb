@@ -14,7 +14,7 @@
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control space" %>
 
         <% if devise_mapping.rememberable? %>
-          <%= f.label t("remember"), class: "checkbox inline" do %>
+          <%= f.label t("remember"), class: "checkbox" do %>
             <%= f.check_box :remember_me, class: "remember_box" %>
             <span><%= t "remember_me" %></span>
           <% end %>

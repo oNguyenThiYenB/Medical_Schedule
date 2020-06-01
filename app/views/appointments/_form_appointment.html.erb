@@ -55,20 +55,21 @@
     </div>
     <div class="row">
       <div class="col-lg-6 col-md-12 insurance">
-        <%= f.label t("have_insurance"), class: "checkbox inline" do %>
-          <%= f.check_box :insurance, class: "remember_box" %>
+        <%= f.label t("have_insurance"), class: "checkbox" do %>
+          <%= f.check_box :insurance, class: "remember_box insurance_box" %>
           <span><%= t "have_insurance" %></span>
         <% end %>
       </div>
     </div>
-    <div class="row padding-message">
+    <div class="row">
       <div class="col col-md-12 message-nice">
-        <%= f.text_area :message, placeholder: t("message") %>
+        <%= f.label t "message" %>
+        <%= f.text_area :message, placeholder: t("message_here") %>
       </div>
     </div>
     <div class="row text">
       <div class="col col-md-12">
-        <%= f.submit t("submit"), class: "custom_btn btn-submit" %>
+        <%= f.submit t("submit"), class: "btn custom_btn btn-submit" %>
       </div>
     </div>
   <% end %>

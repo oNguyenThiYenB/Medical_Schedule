@@ -7,8 +7,8 @@
     <%= link_to appointment.patient_full_name, patient_path(appointment.patient), data: {turbolinks: "false"} %>
   </td>
   <td><%= appointment.day %></td>
-  <td><%= I18n.l(appointment.start_time, format: :short) %></td>
-  <td><%= I18n.l(appointment.end_time, format: :short) %></td>
+  <td><%= I18n.l(appointment.shift_work.start_time, format: :short) %></td>
+  <td><%= I18n.l(appointment.shift_work.end_time, format: :short) %></td>
   <td><%= appointment.doctor_room %></td>
   <td class="btn_group">
     <ul>
