@@ -14,7 +14,7 @@
               <% if current_user.present? %>
                 <li>
                   <%= image_tag current_user.image, id: "avatar_icon" if current_user.image.attached? %>
-                  <%= link_to "#" do %>
+                  <%= link_to "#", data: {turbolinks: "false"} do %>
                     <%= current_user.user_name %><i class="zmdi zmdi-caret-down"></i>
                   <% end %>
                   <ul>

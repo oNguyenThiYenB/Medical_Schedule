@@ -6,4 +6,5 @@ class Patient < User
   has_many :appointments, dependent: :destroy
   has_many :rates, dependent: :destroy
   has_many :medical_records, dependent: :destroy
+  has_many :conversations, foreign_key: :patient_id
 end

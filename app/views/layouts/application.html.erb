@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= full_title yield(:title) %></title>
+    <%= stylesheet_link_tag Settings.cdnjs %>
+    <!-- <%= stylesheet_link_tag Settings.bs3_css %> -->
     <%= render "layouts/rails_default" %>
     <%= render "layouts/shim" %>
-    <!-- <%= stylesheet_link_tag Settings.bs3_css %> -->
-    <%= stylesheet_link_tag Settings.cdnjs %>
   </head>
 
   <body>
@@ -25,8 +25,11 @@
         <% end %>
       </div>
       <%= yield %>
-    </div>
 
+    </div>
+    <% if can? :index, Conversation %>
+      <%= render "conversations/list" %>
+    <% end %>
     <%= render "layouts/footer" %>
   </body>
   <script type="text/javascript">

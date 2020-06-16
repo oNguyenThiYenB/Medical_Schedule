@@ -234,6 +234,19 @@ $(document).ready(function() {
   document.addEventListener('turbolinks:before-cache', function() {
     $('.owl-carousel').owlCarousel('destroy');
   });
+
+  $('#open_chat_list').click(function() {
+    openChatList();
+  });
+
+  $('#close_chat_list').click(function() {
+    closeChatList();
+  });
+
+
+  $('#close_chat').click(function() {
+    closeForm();
+  });
 });
 
 function init_date_picker(element_id) {
@@ -264,6 +277,23 @@ function init_time_picker(element_id) {
       vertical: 'bottom'
     },
   });
+}
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+
+}
+
+function openChatList() {
+  document.getElementById("chat_list").style.display = "block";
+}
+
+function closeChatList() {
+  document.getElementById("chat_list").style.display = "none";
 }
 
 jQuery.fn.load = function(callback){ $(window).on('load', callback) };

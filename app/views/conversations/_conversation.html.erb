@@ -1,0 +1,20 @@
+<div class="chat-popup" id="myForm">
+  <div class="panel-heading">
+    <%= link_to conversation.opposed_user(user)&.user_name, '', class: 'toggle-window' %>
+    <%= link_to "x", close_conversation_path(conversation.id), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
+  </div>
+
+  <div class="panel-body">
+    <ul class="messages-list-<%= conversation.host_id == current_user.id ? conversation.patient_id : conversation.host_id %>">
+      <% load_messages(conversation) %>
+      <%= render @messages if @messages.present? %>
+    </ul>
+  </div>
+  <%= form_tag messages_path, method: :post, remote: true, class: "form-container" do %>
+    <b><%= label_tag :chat_message %></b>
+    <%= hidden_field_tag :conversation_id,  conversation.id %>
+    <%= hidden_field_tag :sender_id,  current_user.id %>
+    <%= text_area_tag :body, nil, placeholder: "Type message..." %>
+    <%= submit_tag :send, class: "btn" %>
+  <% end %>
+</div>

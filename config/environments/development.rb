@@ -34,6 +34,8 @@ Rails.application.configure do
 
   config.assets.quiet = true
 
+  config.assets.digest = false
+
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   host = "localhost:3000"

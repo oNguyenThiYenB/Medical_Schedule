@@ -1,0 +1,9 @@
+$('.chat_list > li').remove();
+<% if @users.present? %>
+  <% @users.each do |user| %>
+    $('.chat_list').append("<li>" + '<%= link_to user.user_name, conversations_path(user_id: user.id), remote: true, method: :post, id: "chat_box" %>' + "</li>");
+  <% end %>
+<% else %>
+  u = '<li>' +  '<%= t('none') %>' + '</li>';
+  $(u).appendTo('.chat_list');
+<% end %>
