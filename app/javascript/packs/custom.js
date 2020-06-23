@@ -25,9 +25,31 @@ function readURL_file(input) {
   }
 }
 
+function readURL_thumbnail(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.image')
+        .attr('src', e.target.result)
+        .width(300)
+        .height(200);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 $(document).ready(function() {
   init_date_picker('.datepicker');
   init_time_picker('.timepicker');
+
+  document.addEventListener('invalid', (function () {
+    return function (e) {
+      e.preventDefault();
+      document.getElementById("body").focus();
+    };
+  })(), true);
 
   $('.faculty_select').change(function(){
     var id_value_string = $(this).val();
@@ -165,6 +187,10 @@ $(document).ready(function() {
 
   $(document).on('change', '.upload_file', function(){
     readURL_file(this);
+  });
+
+  $(document).on('change', '.upload_article_thumbnail', function(){
+    readURL_thumbnail(this);
   });
 
   $('#user_image').bind('change', function() {

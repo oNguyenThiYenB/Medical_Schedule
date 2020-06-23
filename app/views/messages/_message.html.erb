@@ -1,7 +1,8 @@
-<li>
-  <div class="row">
-    <div class="<%= session[:current_user] == message.sender_id ? 'message-sent' : 'message-received' %>">
-      <%= message.body %>
+<div class="div_list div_list_<%= message_class(message) %>">
+  <div class=<%= message_class(message) %>>
+    <%= image_tag message_image(message), class:"avatar_icon " + "avatar-" + message_class(message) %>
+    <div class="message_content message-content-<%= message_class(message) %>">
+      <span class="message_body"><%= message.body %></span>
     </div>
   </div>
-</li>
+</div>

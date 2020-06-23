@@ -1,1 +1,5 @@
 $(".messages-list-" + <%= @message.receiver_id %>).append("<%= j(render 'messages/message', message: @message) %>");
+$('.input_chat').val('');
+
+objDiv = document.getElementById("panel-body");
+objDiv.scrollTop = objDiv.scrollHeight - objDiv.clientHeight;

@@ -11,6 +11,6 @@ consumer.subscriptions.create("ConversationsChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    $(".messages-list-" + data.receiver_id).append(data.layout)
+    $(".messages-list-" + data.sender_id).append(data.layout);
   }
 });

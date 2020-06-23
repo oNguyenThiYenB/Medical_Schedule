@@ -13,7 +13,7 @@
             <ul class="htr_language">
               <% if current_user.present? %>
                 <li>
-                  <%= image_tag current_user.image, id: "avatar_icon" if current_user.image.attached? %>
+                  <%= image_tag current_user.image, class: "avatar_icon" if current_user.image.attached? %>
                   <%= link_to "#", data: {turbolinks: "false"} do %>
                     <%= current_user.user_name %><i class="zmdi zmdi-caret-down"></i>
                   <% end %>

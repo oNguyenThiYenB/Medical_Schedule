@@ -8,3 +8,5 @@ if (conversation.length !== 1) {
 conversation.find('.panel-body').show();
 
 var messages_list = conversation.find('.messages-list');
+objDiv = document.getElementById("panel-body");
+objDiv.scrollTop = objDiv.scrollHeight - objDiv.clientHeight;

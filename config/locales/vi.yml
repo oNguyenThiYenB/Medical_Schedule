@@ -237,6 +237,7 @@ vi:
   likes: "Like:"
   comments: "Bình luận:"
   show_articles: Xem tin tức
+  article_thumbnails: "Ảnh bài viết:"
   obituary: Obituary Tells Brutal of Sister’s
   faculty: Khoa
   select_faculty: Chọn khoa muốn khám
@@ -257,3 +258,5 @@ vi:
   appointment_info: "Thông tin về lịch khám của bạn như sau:"
   hope: Hy vọng bạn sẽ có những trải nghiệm tốt nhất với dịch vụ của chúng tôi! Xin chân thành cảm ơn!
   cancel_email: Bạn đã tạo một yêu cầu đặt lịch khám tại website Medical Schedule. Vì một vài lý do, chúng tôi không thể chấp nhận yêu cầu của bạn. Vui lòng gửi yêu cầu đặt lịch vào một thời gian hoặc bác sỹ khác để chùng tôi có thể phục vụ bạn. Hoặc liên hệ trực tiếp với phòng khám của chúng tôi.
+  type_message: Nhập nội dung tin nhắn ...
+  counselor: Nhân viên tư vấn

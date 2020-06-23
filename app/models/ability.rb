@@ -13,21 +13,22 @@ class Ability
       can :manage, :all
     when "Staff"
       can :update, Doctor
-      can :index, Patient
+      can [:index, :read], Patient
       can :manage, Appointment
       can :manage, Article
       can :manage, Conversation
       can :manage, Message
     when "Doctor"
       can :read, Comment
+      can [:new, :create, :update], Article
     when "Patient"
       can [:create], Appointment
       can [:index], Conversation
       can :manage, Message
       can :manage, Comment, patient_id: user.id
-    when "Nurrse"
+    when "Nurse"
       can :manage, Conversation
-      can :index, Patient
+      can [:index, :read], Patient
       can :update, Appointment
       can [:new, :create, :update], Article
       can :manage, Message
