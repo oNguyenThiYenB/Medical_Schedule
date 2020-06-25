@@ -25,9 +25,31 @@ function readURL_file(input) {
   }
 }
 
+function readURL_thumbnail(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.image')
+        .attr('src', e.target.result)
+        .width(300)
+        .height(200);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 $(document).ready(function() {
   init_date_picker('.datepicker');
   init_time_picker('.timepicker');
+
+  document.addEventListener('invalid', (function () {
+    return function (e) {
+      e.preventDefault();
+      document.getElementById("body").focus();
+    };
+  })(), true);
 
   $('.faculty_select').change(function(){
     var id_value_string = $(this).val();
@@ -167,6 +189,10 @@ $(document).ready(function() {
     readURL_file(this);
   });
 
+  $(document).on('change', '.upload_article_thumbnail', function(){
+    readURL_thumbnail(this);
+  });
+
   $('#user_image').bind('change', function() {
     var size_in_megabytes = this.files[0].size/1048576;
     if (size_in_megabytes > 5) {
@@ -234,6 +260,19 @@ $(document).ready(function() {
   document.addEventListener('turbolinks:before-cache', function() {
     $('.owl-carousel').owlCarousel('destroy');
   });
+
+  $('#open_chat_list').click(function() {
+    openChatList();
+  });
+
+  $('#close_chat_list').click(function() {
+    closeChatList();
+  });
+
+
+  $('#close_chat').click(function() {
+    closeForm();
+  });
 });
 
 function init_date_picker(element_id) {
@@ -264,6 +303,23 @@ function init_time_picker(element_id) {
       vertical: 'bottom'
     },
   });
+}
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+
+}
+
+function openChatList() {
+  document.getElementById("chat_list").style.display = "block";
+}
+
+function closeChatList() {
+  document.getElementById("chat_list").style.display = "none";
 }
 
 jQuery.fn.load = function(callback){ $(window).on('load', callback) };

@@ -17,7 +17,7 @@
       <div class="col-md-8">
         <h2 class="color-list total"><%= t "total" %>: <%= total_index_page @articles %></h2>
       </div>
-      <% if !current_user&.patient? %>
+      <% if (current_user && !current_user&.patient?) %>
         <div class="col-md-4">
           <%= link_to new_article_path, class: "custom_btn btn_size right_float" do %>
             <%= t "add_news" %>

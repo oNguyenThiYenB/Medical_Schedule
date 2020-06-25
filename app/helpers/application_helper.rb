@@ -33,4 +33,12 @@ module ApplicationHelper
   def total_index_page total_item
     total_item.size
   end
+
+  def users_for_chat
+    if (current_user&.nurse? || current_user&.staff?)
+      Patient.all
+    else
+      User.all.where(role: [:nurse, :staff])
+    end
+  end
 end

@@ -1,0 +1,41 @@
+<div class="contact_form">
+  <%= form_for @article do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="row padding-message">
+      <div class="col col-md-12 message-nice">
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+        <%= f.label t("article_category") %>
+        <%= f.select :article_category_id, article_categories,
+          {}, class: "form-control select-be" %>
+
+        <%= f.label t("title") %>
+        <%= f.text_area :title, class: "form-control", rows: 3 %>
+
+        <table>
+          <tr>
+            <td rowspan="2" colspan="2">
+              <%= f.label t("article_thumbnails") %>
+              <%= f.file_field :thumbnail, class: "form-control upload_article_thumbnail" %>
+            </td>
+            <td rowspan="2" colspan="1">
+              <% if @article.thumbnail.attached? %>
+                <%= image_tag @article.display_image, class: "image default_article_thumbnail" %>
+              <% else %>
+                <%= image_tag "blog1.jpg", class: "image default_article_thumbnail" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+
+        <%= f.label t("content") %>
+        <%= f.cktext_area :content, ckeditor: { language: 'us' }, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row text">
+      <div class="col col-md-12">
+        <%= f.submit t("submit"), class: "btn custom_btn btn-submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>

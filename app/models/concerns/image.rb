@@ -20,19 +20,19 @@ module Image
     files.attach params[:patient][:files]
   end
 
-  def attach_article_image params
-    if params[:article][:images].blank?
+  def attach_article_thumbnail params
+    byebug
+    if params[:article][:thumbnail].blank?
       check_create_article params[:action]
     else
-      images.purge
-      images.attach(params[:article][:images])
+      thumbnail.attach(params[:article][:thumbnail])
     end
   end
 
   def check_create_article params
     return true unless params.eql? "create"
 
-    images.attach(io: File.open(Rails.root
+    thumbnail.attach(io: File.open(Rails.root
       .join("app/assets/images/blog1.jpg")),
       filename: "blog1.jpg")
   end

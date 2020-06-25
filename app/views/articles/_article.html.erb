@@ -1,9 +1,7 @@
 <div class="col-md-6">
   <div class="single_blog">
-    <% if article.images.attached? %>
-      <% article.images.each do |image| %>
-      <div class="blog_img"><%= image_tag image %></div>
-      <% end %>
+    <% if article.thumbnail.attached? %>
+      <div class="blog_img"><%= image_tag article.thumbnail, class: "article_thumbnail" %></div>
     <% end %>
     <div class="blog_content">
       <div class="blog_meta">
@@ -20,6 +18,14 @@
       <%= link_to article_path(article.id), class: "read_btn" do %>
         <%= t "know_more" %>
         <i class="zmdi zmdi-pmmore lus"></i>
+      <% end %>
+      <% if current_user&.staff? || current_user&.admin? %>
+        <%= link_to article_path(article.id), method: :delete, data: {confirm: t("are_you_sure_delete")}, class: "btn btn-danger btn_width right_float" do %>
+          <%= t "delete_article" %>
+        <% end %>
+        <%= link_to edit_article_path(article.id), class: "btn btn-primary btn_width right_float" do %>
+          <%= t "edit_article" %>
+        <% end %>
       <% end %>
     </div>
   </div>

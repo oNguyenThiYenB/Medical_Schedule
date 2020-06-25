@@ -244,6 +244,7 @@ en:
   show_articles: Show article
   obituary: Obituary Tells Brutal  of Sister’s
   articles: Articles
+  article_thumbnails: "Article thumbnails:"
   faculty: Faculty
   select_faculty: Select Faculty
   select_doctor: Select Doctor
@@ -263,3 +264,5 @@ en:
   appointment_info: Your schedule information is as follows
   hope: Hope you will have the best experience with our service! Thank you!
   cancel_email: You have recently created a request to schedule an appointment at the Medical Schedule website. For some reason, we were unable to accommodate your request. Please schedule an appointment at a different time or other doctor so we can serve you.
+  type_message: Type message ...
+  counselor: Counselor

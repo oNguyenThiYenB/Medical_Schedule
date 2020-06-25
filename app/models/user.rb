@@ -9,6 +9,11 @@ class User < ApplicationRecord
 
   self.inheritance_column = :role
 
+  has_many :messages, class_name: Message.name,
+                        foreign_key: :receiver_id, dependent: :destroy
+  has_many :send_messages, class_name: Message.name,
+                        foreign_key: :sender_id, dependent: :destroy
+
   VALID_EMAIL_REGEX = Settings.valid_email_regex
   VALID_PHONE_REGEX = Settings.valid_phone_regex
 
@@ -34,11 +39,11 @@ class User < ApplicationRecord
 
   class << self
     def roles
-      %w(Admin Staff Doctor Patient)
+      %w(Admin Staff Doctor Patient Nurse)
     end
   end
 
-  %w(Admin Staff Doctor Patient).each do |klass|
+  %w(Admin Staff Doctor Patient Nurse).each do |klass|
     define_method "#{klass.downcase}?" do
       self.class.name == klass
     end

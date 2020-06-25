@@ -1,0 +1,8 @@
+<div class="div_list div_list_<%= message_class(message) %>">
+  <div class=<%= message_class(message) %>>
+    <%= image_tag message_image(message), class:"avatar_icon " + "avatar-" + message_class(message) %>
+    <div class="message_content message-content-<%= message_class(message) %>">
+      <span class="message_body"><%= message.body %></span>
+    </div>
+  </div>
+</div>

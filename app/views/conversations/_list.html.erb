@@ -1,0 +1,45 @@
+<%# <button class="open-button" id="open_chat_list"></button> %>
+<%= link_to "", conversations_path, class: "open-button", id: "open_chat_list", remote: true %>
+
+<div class="w3-sidebar" style="display:none;" id="chat_list">
+  <div class="title_bar">
+    <div class="box_title">
+      <h4 class="chat_title">Chat List</h4>
+      <button class="close-button chat_title" id="close_chat_list"><i class="zmdi zmdi-close zmdi-hc-lg"></i></button>
+    </div>
+  </div>
+  <ul class="chat_list">
+  </ul>
+  <div class="footer_bar">
+    <div class="box_footer">
+      <h5 class="footer_action">Click user name to chat</h5>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- <div class="row conversation_sidebar">
+  <div class="col-md-9">
+    <ul id="conversations-list">
+      <% @conversations&.each do |conversation| %>
+        <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">User list</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% users_for_chat.each do |user| %>
+            <li><%= link_to user.user_name, conversations_path(user_id: user), remote: true, method: :post %></<li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> -->

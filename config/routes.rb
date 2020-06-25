@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    require "sidekiq/web"
+    mount ActionCable.server => '/cable'
+    mount Sidekiq::Web => "/sidekiq"
     mount Ckeditor::Engine => '/ckeditor'
 
     root "static_pages#home"
@@ -16,6 +19,12 @@ Rails.application.routes.draw do
     resources :users, only: :show
     resources :patients do
       resources :medical_records
+    end
+    resources :messages, only: :create
+    resources :conversations  do
+      member do
+        post :close
+      end
     end
     resources :faculties
     resources :doctors do
