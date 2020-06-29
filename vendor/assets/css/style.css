@@ -1231,10 +1231,11 @@ footer:after {
 
 .breadvroumb_area {
     padding: 65px 0 90px;
-    background-image: url(img/welcome_shap.png);
+    background-image: url("default_banner.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
+    height: 350px;
 }
 
 .breadvroumb_area h1 {

@@ -4,7 +4,7 @@
       <%= image_tag doctor.image if doctor.image.attached? %>
     <% end %>
     <h5><i><%= doctor.position %></i></h5>
-    <h5><%= link_to doctor.full_name, doctor %></h5>
+    <h5><%= link_to doctor.full_name, doctor, data: {turbolinks: "false"} %></h5>
     <span class="space"><%= doctor.department %></span>
     <br>
     <% if can_edit_doctor? %>

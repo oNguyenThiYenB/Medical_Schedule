@@ -3,7 +3,7 @@
     <%= image_tag user.image, class:"avatar_icon" %>
     <h5 class="chat_member_name">
       <%= link_to conversation.opposed_user(user).user_name, receiver_path(conversation.opposed_user(user)),
-        class: 'toggle-window', data: {turbolinks: "false"} %>
+        class: 'toggle-window' %>
     </h5>
     <%= link_to "x", close_conversation_path(conversation.id), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
     <% if current_user.patient? %>

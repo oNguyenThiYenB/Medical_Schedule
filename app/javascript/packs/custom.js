@@ -276,11 +276,12 @@ $(document).ready(function() {
 });
 
 function init_date_picker(element_id) {
-  var currentDate = new Date();
+  currentDate = new Date();
+  defaultDate = currentDate.setDate(currentDate.getDate() + 1);
   $(element_id).datetimepicker({
-    defaultDate: '',
+    defaultDate: defaultDate,
     ignoreReadonly: true,
-    minDate: new Date(),
+    minDate: defaultDate,
     stepping: 60,
     format: 'L',
     format: 'DD/MM/YYYY',

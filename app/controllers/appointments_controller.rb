@@ -63,7 +63,7 @@ class AppointmentsController < ApplicationController
     # @not_confirmed = [:waiting, :cancle]
     current_date = Date.today
     occupied_full_dates = Appointment.find_appointments_by_doctor_id_from_current_date(params[:doctor_id], current_date)&.
-      by_confirmed([:waiting, :cancle])&.group(:day).count.select { |day, count| count == 16 }.keys
+    by_not_confirmed([:waiting, :cancle])&.group(:day).count.select { |day, count| count == 16 }.keys
     @occupied_full_dates_formated = occupied_full_dates_formated(occupied_full_dates)
     respond_to do |format|
       format.json  { render :json => @occupied_full_dates_formated }
@@ -72,11 +72,15 @@ class AppointmentsController < ApplicationController
 
   def for_date_picker
     occupied_appointments_by_day = Appointment.find_appointments_by_doctor_id_and_day(params[:doctor_id], params[:date_picker].to_date)&.
-      by_confirmed([:waiting, :cancle])
-    shift_work_id_arr = occupied_appointments_by_day.map do
-      |appointment| appointment.shift_work_id
+    by_not_confirmed([:waiting, :cancle])
+    if occupied_appointments_by_day.present?
+      shift_work_id_arr = occupied_appointments_by_day.map do
+        |appointment| appointment.shift_work_id
+      end
+      free_shift_works_by_day = ShiftWork.by_shift_work_id(shift_work_id_arr)
+    else
+      free_shift_works_by_day = ShiftWork.all
     end
-    free_shift_works_by_day = ShiftWork.by_shift_work_id(shift_work_id_arr)
     @free_time_by_day = time_format(free_shift_works_by_day)
     respond_to do |format|
       format.json  { render :json => @free_time_by_day }
