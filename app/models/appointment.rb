@@ -30,7 +30,7 @@ class Appointment < ApplicationRecord
     where("doctor_id = ? and day = ?", doctor_id, day)
   end)
 
-  scope :by_confirmed, (lambda do |status|
+  scope :by_not_confirmed, (lambda do |status|
     where("status not in (?)", status)
   end)
 end

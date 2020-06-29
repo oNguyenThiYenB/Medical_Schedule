@@ -803,22 +803,24 @@ body {
   margin: 0 -10px 10px;
 }
 
-.panel-body {
-  height: 250px;
-  overflow-y: scroll;
-  padding: 15px 0 15px 0;
-  .avatar_icon {
-    height: 35px;
-    width: 35px;
+.chat-popup {
+  .panel-body {
+    height: 250px;
+    overflow-y: scroll;
+    padding: 15px 0 15px 0;
+    .avatar_icon {
+      height: 35px;
+      width: 35px;
+    }
+    li {
+      height: fit-content;
+      margin-top: 5px;
+    }
   }
-  li {
-    height: fit-content;
-    margin-top: 5px;
-  }
-}
 
-.panel-heading {
-  padding: 10px 0 0;
+  .panel-heading {
+    padding: 10px 0 0;
+  }
 }
 
 .pull-right {
@@ -892,4 +894,8 @@ body {
 
 .upload_article_thumbnail {
   display: inline-grid !important;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
