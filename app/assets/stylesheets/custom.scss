@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-.htr_language > li{
+.htr_language > li, #modalTitle, .close_modal {
   display: inline-block !important;
 }
 
@@ -61,6 +61,10 @@ input, textarea, select, .uneditable-input {
   .table {
       display: block;
   }
+}
+
+ul.htr_language, .htl > p {
+  margin-bottom: 0px;
 }
 
 .htr_language>li>a {
@@ -898,4 +902,183 @@ body {
 
 .dropdown-toggle::after {
   display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.appointment_form {
+  .form-control, .select-be {
+    color: #555555;
+    text-align: left;
+  }
+
+  .datepicker {
+    background-color: white;
+  }
+
+  input {
+    text-indent: 6px;
+  }
+}
+
+
+.input-group-addon {
+  background-color: white;
+}
+
+.appointment_title {
+  margin-top: -40px;
+}
+
+.insurance {
+  .checkbox {
+    margin-bottom: 20px;
+  }
+}
+
+.time_table_area {
+    padding: 0px 0px 50px 0;
+}
+
+.main_menu {
+  margin-bottom: 0px;
+}
+
+.copyright_area {
+  p {
+    margin: 5px 0;
+  }
+}
+
+.event_accepted {
+  border-color: red !important;
+}
+
+.modal.in .modal-dialog {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.modal.fade .modal-dialog {
+  -webkit-transform: translate3d(0, -25%, 0);
+  transform: translate3d(0, -25%, 0);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 710px !important;
+    max-width: 900px !important;
+    margin: 30px auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 900px;
+    margin: 30px auto;
+  }
+}
+
+.modal-dialog {
+  top: 30%;
+  position: relative;
+  width: auto;
+  min-width: 500px !important;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); /* <-- this is the culprit */
+  #lbl_modal, .label {
+    padding: 7px;
+    height: 34px !important;
+  }
+  #lbl_modal{
+    float: left;
+    display: inline-block;
+  }
+  #modal_form{
+    display: flex;
+    margin: 0 !important;
+    form{
+      width: 100% !important;
+    }
+  }
+}
+
+.modal-header .close {
+  margin: -15px -15px -15px auto;
+}
+
+#modalBody{
+
+  table{
+    width: 100%;
+    .modal_th{
+      width: 40%;
+    }
+  }
+}
+
+.modal-footer{
+  display: block;
+}
+
+.select_modal_status {
+  float: left;
+  display: inline-block;
+  width: fit-content;
+  height: 100% !important;
+  margin-bottom: 0 !important;
+}
+
+.submit_modal{
+  display: inline-block;
+  float: right;
+}
+
+#modalTitle, #appointment_time{
+  font-weight: bold !important;
+}
+
+.label-waiting{
+  font-size: 14px;
+  background-color: #f3ce13;
+}
+.label-accepted{
+  background-color: #3f729b;
+  font-size: 14px;
+}
+.label-rejected{
+  background-color: #6567a5;
+  font-size: 14px;
+}
+.label-canceled{
+  background-color: #cf0005;
+  font-size: 14px;
+}
+.label-in_progress{
+  background-color: #00af81;
+  font-size: 14px;
+}
+.label-finished{
+  background-color: #76cc1e;
+  font-size: 14px;
 }

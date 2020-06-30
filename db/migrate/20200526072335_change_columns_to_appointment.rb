@@ -3,6 +3,6 @@ class ChangeColumnsToAppointment < ActiveRecord::Migration[6.0]
     remove_column :appointments, :start_time, :time
     remove_column :appointments, :end_time, :time
     add_column :appointments, :number, :integer
-    add_column :appointments, :insurance, :boolean, default: false
+    add_column :appointments, :have_insurance, :boolean, default: false
   end
 end

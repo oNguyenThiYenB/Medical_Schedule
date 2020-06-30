@@ -41,8 +41,39 @@ function readURL_thumbnail(input) {
 }
 
 $(document).ready(function() {
-  init_date_picker('.datepicker');
-  init_time_picker('.timepicker');
+  var currentDate = new Date();
+  var appointmentDefaultDate = currentDate.setDate(currentDate.getDate() + 1);
+  var initDateArr = {
+    '.datepicker': appointmentDefaultDate,
+    '#date_of_birth_picker': currentDate,
+    '#start_date_insurance_picker': currentDate,
+    '#due_date_insurance_picker': appointmentDefaultDate
+  };
+
+  $(".insurance_form").hide();
+
+  if ($(".insurance_box").prop("checked") == true) {
+    $(".insurance_form").show();
+  } else {
+    $(".insurance_form").hide();
+  }
+
+  $(".insurance_box").click(function () {
+    if ($(".insurance_box").prop("checked") == true) {
+      $(".insurance_form").show();
+    } else {
+      $(".insurance_form").hide();
+    }
+  })
+
+  $.each(initDateArr, function (index, value) {
+    if ($.inArray(index, [".datepicker", "#due_date_insurance_picker"]) != -1) {
+      minDate = value;
+    } else {
+      minDate = false;
+    }
+    init_date_picker(index, value, minDate);
+  });
 
   document.addEventListener('invalid', (function () {
     return function (e) {
@@ -50,6 +81,31 @@ $(document).ready(function() {
       document.getElementById("body").focus();
     };
   })(), true);
+
+  function model_remote() {
+    var modal_holder_selector;
+    modal_holder_selector = "#modal-holder";
+    $(document).on("click", "[data-behavior='modal']", function() {
+      var location;
+      $('body').modalmanager('loading');
+      location = $(this).attr("href");
+      $.get(location, function(data) {
+        return $(modal_holder_selector).html(data).find(".modal").modal("show");
+      });
+      return false;
+    });
+    return $(document).on("ajax:success", "[data-behavior='modal-form']", function(event, data, status, xhr) {
+      var url;
+      url = xhr.getResponseHeader("Location");
+      if (url) {
+        window.location = url;
+      } else {
+        $(".modal").modal("hide");
+      }
+      return false;
+    });
+  }
+
 
   $('.faculty_select').change(function(){
     var id_value_string = $(this).val();
@@ -128,7 +184,6 @@ $(document).ready(function() {
     };
   });
 
-
   $('.datepicker').on('dp.change', function(e){
     var value_string = $(this).val();
     var pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
@@ -201,7 +256,7 @@ $(document).ready(function() {
   });
 
   $('#calendar').fullCalendar({
-    weekends: false,
+    contentHeight: 600,
     slotDuration: '00:15',
     minTime: '06:00:00',
     maxTime: '18:00:01',
@@ -212,11 +267,30 @@ $(document).ready(function() {
       $('#calendar').fullCalendar('gotoDate', date);
     },
 
+    eventRender: function(event){
+      var description = event.description;
+      var firstname = event.firstname;
+    },
+
     eventClick: function(calEvent, jsEvent, view) {
       if (view.type == 'month' || view.type == 'agendaWeek' ) {
         $('#calendar').fullCalendar('changeView', 'agendaDay');
         $('#calendar').fullCalendar('gotoDate', calEvent.start);
         return false;
+      }
+      if (view.type == 'agendaDay') {
+        $('#appointment_time').html(calEvent.modal_title);
+        $('#patient_name_cont').html(calEvent.patient_name);
+        $('#patient_birth_cont').html(calEvent.patient_birth);
+        $('#patient_gender_cont').html(calEvent.patient_gender);
+        $('#patient_msg_cont').html(calEvent.patient_msg);
+        $('#doctor_name_cont').html(calEvent.doctor_name);
+        $('#doctor_room_cont').html(calEvent.doctor_room);
+        $('#doctor_position_cont').html(calEvent.doctor_position);
+        $('#doctor_department_cont').html(calEvent.doctor_department);
+        $('#lbl_modal').html(calEvent.lbl_modal);
+        $('#modal_form').html(calEvent.modal_form);
+        $('#fullCalModal').modal();
       }
     },
 
@@ -224,7 +298,7 @@ $(document).ready(function() {
       $(this).css('z-index', 8);
       $('.tooltipevent').remove();
     },
-    defaultView: 'month',
+    defaultView: 'agendaWeek',
 
     header: {
       center: 'month,agendaWeek,agendaDay'
@@ -273,15 +347,17 @@ $(document).ready(function() {
   $('#close_chat').click(function() {
     closeForm();
   });
+
+  $('.fc-time-grid-event').attr('data', { modal: true });
+
+  model_remote();
 });
 
-function init_date_picker(element_id) {
-  currentDate = new Date();
-  defaultDate = currentDate.setDate(currentDate.getDate() + 1);
-  $(element_id).datetimepicker({
+function init_date_picker(element, defaultDate, minDate) {
+  $(element).datetimepicker({
     defaultDate: defaultDate,
     ignoreReadonly: true,
-    minDate: defaultDate,
+    minDate: minDate,
     stepping: 60,
     format: 'L',
     format: 'DD/MM/YYYY',
@@ -292,6 +368,7 @@ function init_date_picker(element_id) {
     },
   });
 }
+
 
 function init_time_picker(element_id) {
   $(element_id).datetimepicker({

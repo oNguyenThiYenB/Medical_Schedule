@@ -121,14 +121,17 @@ vi:
   signout: Đăng xuất
   account: Tài khoản của tôi
   university: Student at Australian National University and the lead author of a paper published in Nature on Wednesday that may hold the answer. Mr. Jones and his colleagues developed a model that simulates what’s happening in our planet’s mantle beneat the crust that we live on, offering a window to the center of the.
-  gender: Giới tính
+  gender: "Giới tính:"
   male: Nam
   female: Nữ
+  other: Khác...
   select_your_service: Chọn loại dịch vụ
-  date_of_birth: Ngày sinh
+  date_of_birth: "Ngày sinh:"
+  start_date: "Có giá trị từ ngày:"
+  due_date: "Đến ngày:"
   email: "Email:"
   phone: "Số điện thoại:"
-  reservation_date: Ngày đặt trước
+  reservation_date: "Ngày đặt trước:"
   address: "Địa chỉ:"
   status: Trạng thái
   medical_record: Hồ sơ bệnh án
@@ -260,3 +263,24 @@ vi:
   cancel_email: Bạn đã tạo một yêu cầu đặt lịch khám tại website Medical Schedule. Vì một vài lý do, chúng tôi không thể chấp nhận yêu cầu của bạn. Vui lòng gửi yêu cầu đặt lịch vào một thời gian hoặc bác sỹ khác để chùng tôi có thể phục vụ bạn. Hoặc liên hệ trực tiếp với phòng khám của chúng tôi.
   type_message: Nhập nội dung tin nhắn ...
   counselor: Nhân viên tư vấn
+  card_number: "Mã thẻ:"
+  appointment_history: Lịch sử khám
+  appointment_detail: Thông tin chi tiết lịch khám
+  m_canceled: Huỷ bỏ
+  m_rejected: Từ chối
+  m_in_progress: Đang khám
+  m_finished: Hoàn thành
+  waiting: Đang chờ
+  accepted: Được chấp nhận
+  rejected: Bị huỷ
+  canceled: Bị từ chối
+  in_progress: Đang khám
+  finished: Hoàn thành
+  placeholder_modal: Cập nhật
+  activerecord:
+    errors:
+      models:
+        appointment:
+          attributes:
+            shift_work:
+              required: shift_work attributes required

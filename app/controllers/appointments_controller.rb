@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i(new for_faculty_id for_doctor_id for_date_picker)
-  before_action :find_appointment, only: %i(update destroy)
+  before_action :find_appointment, only: %i(show update destroy)
   load_and_authorize_resource
 
   include AppointmentHelper
@@ -14,12 +14,29 @@ class AppointmentsController < ApplicationController
                                .per Settings.app_pages
   end
 
+  def show
+    render layout: 'modal'
+  end
+
   def create
     # params[:appointment][:end_time] =
     #   params[:appointment][:start_time].to_time(:utc).ago(Settings.limit_time)
     @appointment = current_user.appointments.build appointment_params
-    created_appointment
+byebug
+    if appointment_params[:have_insurance] == "1"
+      ActiveRecord::Base.transaction do
+        insurance = current_user.insurances.find_or_create_by insurance_params
+        @appointment.save
+      end
+      flash[:success] = t "appointment_created"
+      redirect_to root_url
+    else
+      created_appointment
+    end
     MailCreatedAppointmentJob.perform_later @appointment
+  rescue ActiveRecord::RecordInvalid
+    flash[:danger] = t "not_create_success"
+    render :new
   end
 
   def destroy
@@ -60,10 +77,10 @@ class AppointmentsController < ApplicationController
   end
 
   def for_doctor_id
-    # @not_confirmed = [:waiting, :cancle]
+    # @not_confirmed = [:waiting, :cancel]
     current_date = Date.today
     occupied_full_dates = Appointment.find_appointments_by_doctor_id_from_current_date(params[:doctor_id], current_date)&.
-    by_not_confirmed([:waiting, :cancle])&.group(:day).count.select { |day, count| count == 16 }.keys
+    by_not_status([:waiting, :cancel])&.group(:day).count.select { |day, count| count == 16 }.keys
     @occupied_full_dates_formated = occupied_full_dates_formated(occupied_full_dates)
     respond_to do |format|
       format.json  { render :json => @occupied_full_dates_formated }
@@ -72,7 +89,7 @@ class AppointmentsController < ApplicationController
 
   def for_date_picker
     occupied_appointments_by_day = Appointment.find_appointments_by_doctor_id_and_day(params[:doctor_id], params[:date_picker].to_date)&.
-    by_not_confirmed([:waiting, :cancle])
+    by_not_status([:waiting, :cancel])
     if occupied_appointments_by_day.present?
       shift_work_id_arr = occupied_appointments_by_day.map do
         |appointment| appointment.shift_work_id
@@ -93,7 +110,12 @@ class AppointmentsController < ApplicationController
     params.require(:appointment).permit Appointment::APPOINTMENT_PARAMS
   end
 
+  def insurance_params
+    params.permit :card_number, :date_of_birth, :gender, :start_date, :due_date
+  end
+
   def created_appointment
+    byebug
     if @appointment.save
       flash[:success] = t "appointment_created"
       redirect_to root_url

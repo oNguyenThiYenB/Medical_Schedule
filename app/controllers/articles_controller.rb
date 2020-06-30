@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
 
   rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "not_create_success"
-    render :new
+    render :new 
   end
 
   def edit; end

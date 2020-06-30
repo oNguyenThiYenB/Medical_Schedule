@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_020739) do
+ActiveRecord::Schema.define(version: 2020_06_30_134555) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -46,7 +46,8 @@ ActiveRecord::Schema.define(version: 2020_06_01_020739) do
     t.date "day"
     t.bigint "shift_work_id"
     t.integer "number"
-    t.boolean "insurance", default: false
+    t.boolean "have_insurance", default: false
+    t.string "cancel_reason"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["faculty_id"], name: "index_appointments_on_faculty_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
@@ -118,11 +119,40 @@ ActiveRecord::Schema.define(version: 2020_06_01_020739) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "medical_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "insurances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "patient_id"
+    t.string "card_number"
+    t.integer "gender"
+    t.date "date_of_birth"
+    t.date "start_date"
+    t.date "due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["patient_id"], name: "index_medical_records_on_patient_id"
+    t.index ["patient_id"], name: "index_insurances_on_patient_id"
+  end
+
+  create_table "medical_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "appointment_id"
+    t.string "health_condition", null: false
+    t.string "diagnoses", null: false
+    t.index ["appointment_id"], name: "index_medical_records_on_appointment_id"
+  end
+
+  create_table "medicine_prescriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "medicine_id"
+    t.bigint "prescription_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["medicine_id"], name: "index_medicine_prescriptions_on_medicine_id"
+    t.index ["prescription_id"], name: "index_medicine_prescriptions_on_prescription_id"
+  end
+
+  create_table "medicines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "medicine_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -133,6 +163,15 @@ ActiveRecord::Schema.define(version: 2020_06_01_020739) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+  end
+
+  create_table "prescriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "appointment_id"
+    t.integer "quantity"
+    t.string "dosage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appointment_id"], name: "index_prescriptions_on_appointment_id"
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -150,7 +189,6 @@ ActiveRecord::Schema.define(version: 2020_06_01_020739) do
     t.time "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "day"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|

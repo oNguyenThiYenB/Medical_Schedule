@@ -13,12 +13,14 @@ Rails.application.routes.draw do
     devise_for :users, controllers: {
       registrations: "users/registrations",
       confirmations: "users/confirmations",
+      sessions: "users/sessions",
     }
     get "admin/dashboard", to: "admin/dashboard#index"
 
     resources :users, only: :show
     resources :patients do
       resources :medical_records
+      resources :schedules
     end
     resources :messages, only: :create
     resources :conversations  do

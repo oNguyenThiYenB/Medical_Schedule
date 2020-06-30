@@ -16,10 +16,16 @@ class ApplicationController < ActionController::Base
     if resource.admin?
       admin_dashboard_path
     else
-      home_path
+      session[:saved_path]
     end
   end
 
+  def respond_modal_with(*args, &blk)
+    options = args.extract_options!
+    options[:responder] = ModalResponder
+    respond_with *args, options, &blk
+  end
+  
   private
 
   def set_locale

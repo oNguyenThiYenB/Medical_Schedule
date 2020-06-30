@@ -1,0 +1,2 @@
+class MedicinePrescription < ApplicationRecord
+end
