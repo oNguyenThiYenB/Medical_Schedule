@@ -99,34 +99,34 @@ end
 
 8.times do |n|
     minute = (n%2 == 0) ? ":00" : ":30"
+    minute_end = (n%2 == 0) ? ":30" : ":00"
     ShiftWork.create!(
     start_time: Time.zone.parse("#{7 + n/2}" + minute),
-    end_time: Time.zone.parse("#{9 + n/2}" + minute))
+    end_time: Time.zone.parse("#{7 + (1+n)/2}" + minute_end))
 end
 
 8.times do |n|
   minute = (n%2 == 0) ? ":00" : ":30"
+  minute_end = (n%2 == 0) ? ":30" : ":00"
   ShiftWork.create!(
   start_time: Time.zone.parse("#{12 + n/2}" + minute),
-  end_time: Time.zone.parse("#{12 + n/2}" + minute))
+  end_time: Time.zone.parse("#{12 + (1+n)/2}" + minute_end))
 end
 
 8.times do |n|
-  Appointment.create!(shift_work_id: 1, doctor_id: 1, faculty_id: 1, patient_id:22+n, status: 1,
+  Appointment.create!(shift_work_id: 2, doctor_id: 1, faculty_id: 1, patient_id:22+n, status: 1,
   phone_patient: "0343934499",
   address_patient: "Ngach 67 Goc De",
   day: Date.today + n,
-  number: n+1,
-  insurance: (n%2 == 0) ? true : false)
+  number: n+1)
 end
 
 7.times do |n|
-  Appointment.create!(shift_work_id: n+2, doctor_id: 1, faculty_id: 1, patient_id:22+n, status: 1,
+  Appointment.create!(shift_work_id: n+3, doctor_id: 1, faculty_id: 1, patient_id:22+n, status: 1,
   phone_patient: "0343934499",
   address_patient: "Ngach 67 Goc De",
   day: Date.today + n,
-  number: n+9,
-  insurance: (n%2 == 0) ? true : false)
+  number: n+9)
 end
 
 8.times do |n|
@@ -163,14 +163,3 @@ d.save
 d = ArticleCategory.create!(id: 4,
   article_category_name: "Quy trình khám chữa bệnh")
 d.save
-
-10.times do |n|
-  p = Article.create!(user_id: 1,
-    article_category_id: 1,
-    title: "How to handle your kids’ from mystey",
-    content: "Wednesday scientists near California in have found that, through this process a can filter all of the bay’s water from pound oculus, a lens that will give the impression of seeing the fish from the bottom of a huge cocktail glas. And that’s just one of many attractions and exhibits Officials at the $305 million Phillip and Patricia Frost Muse um of Science promise that it will be a vivid expression of modern scientific inquiry and exposition. Its opening follows a series of setbacks and lawsuitsWednesday scientists near California in have found that, through this process a can filter all of the bay’s water from pound oculus, a lens that will give the impression of seeing the fish from the bottom of a huge cocktail glas. And that’s just one of many attractions and exhibits Officials at the $305 million Phillip and Patricia Frost Muse um of Science promise that it will be a vivid expression of modern scientific inquiry and exposition. Its opening follows a series of setbacks and lawsuits")
-  p.images.attach io: File.open(Rails.root
-    .join("app/assets/images/blog1.jpg")),
-    filename: "default_image_new.png"
-  p.save
-end

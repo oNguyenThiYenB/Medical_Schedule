@@ -1,5 +1,5 @@
 <div class="col">
-  <h4><%= t "appointment" %></h4>
+  <h1 class="appointment_title"><%= t "appointment" %></h1>
 </div>
 
 <div class="contact_form appointment_form">
@@ -9,26 +9,26 @@
       <div class="row">
         <div class="col-lg-6 col-md-12">
           <%= f.label t "full_name" %>
-          <%= f.text_field :full_name, class: "select-be",
+          <%= f.text_field :full_name, class: "form-control",
             disabled: true, value: current_user.full_name %>
         </div>
         <div class="col-lg-6 col-md-12">
           <%= f.label t "phone" %>
-          <%= f.text_field :phone_patient, class: "select-be",
-            value: current_user.phone %>
+          <%= f.text_field :phone_patient, class: "form-control",
+            value: current_user.phone, autocomplete: "off" %>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col col-md-12">
           <%= f.label t "email" %>
-          <%= f.email_field :email, class: "select-be",
+          <%= f.email_field :email, class: "form-control",
             disabled: true, value: current_user.email %>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col col-md-12">
           <%= f.label t "address" %>
-          <%= f.text_field :address_patient, class: "select-be",
+          <%= f.text_field :address_patient, class: "form-control",
             value: current_user.address %>
         </div>
       </div>
@@ -48,8 +48,12 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 date_picker">
         <%= f.label t "day" %>
-        <%= f.text_field :day, {readonly: "readonly",
-          class: "select-be datepicker" }%>
+        <div class='input-group date' id='datepicker'>
+          <%= f.text_field :day, {readonly: "readonly", class: "select-be datepicker form-control input-group-addon" }%>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
       </div>
       <div class="col-lg-6 col-md-12 time_select_area">
         <%= f.label t "start_time" %>
@@ -60,11 +64,14 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 insurance">
         <%= f.label t("have_insurance"), class: "checkbox" do %>
-          <%= f.check_box :insurance, class: "remember_box insurance_box" %>
+          <%= f.check_box :have_insurance, class: "remember_box insurance_box", checked: check_have_insurance %>
           <span><%= t "have_insurance" %></span>
         <% end %>
       </div>
     </div>
+    <% if current_user.present? %>
+      <%= render "insurance_form", f: f %>
+    <% end %>
     <div class="row">
       <div class="col col-md-12 message-nice">
         <%= f.label t "message" %>

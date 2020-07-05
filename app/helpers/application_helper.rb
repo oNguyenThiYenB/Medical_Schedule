@@ -41,4 +41,12 @@ module ApplicationHelper
       User.all.where(role: [:nurse, :staff])
     end
   end
+
+  def appointment_history_path
+    if current_user.patient?
+      patient_schedules_path(current_user)
+    else
+      doctor_schedules_path(current_user)
+    end
+  end
 end

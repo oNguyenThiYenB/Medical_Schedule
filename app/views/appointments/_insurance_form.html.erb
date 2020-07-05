@@ -1,0 +1,41 @@
+<div class="insurance_form">
+	<div class="row">
+		<div class="col-lg-6 col-md-12">
+			<%= f.label t "card_number" %>
+			<%= text_field_tag :card_number, default_insurance(:card_number), class: "form-control" %>
+		</div>
+		<div class="col-lg-3 col-md-6">
+			<%= f.label t "date_of_birth" %>
+			<div class='input-group date' id='date_of_birth_picker'>
+				<%= text_field_tag :date_of_birth, default_insurance(:date_of_birth), id: "date_of_birth_picker", class: "form-control input-group-addon" %>
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6">
+			<%= f.label t "gender" %>
+			<%= select_tag :gender, options_for_select(gender_select, default_insurance(:gender)), class: "select-be form-control" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-md-6">
+			<%= f.label t "start_date" %>
+			<div class='input-group date' id='start_date_insurance_picker'>
+				<%= text_field_tag :start_date, default_insurance(:start_date), id: "start_date_insurance_picker", class: "form-control input-group-addon" %>
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6">
+			<%= f.label t "due_date" %>
+			<div class='input-group date' id='due_date_insurance_picker'>
+				<%= text_field_tag :due_date, default_insurance(:due_date), id: "start_date_insurance_picker", class: "form-control input-group-addon" %>
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

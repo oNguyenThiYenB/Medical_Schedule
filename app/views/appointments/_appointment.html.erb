@@ -25,7 +25,7 @@
             <%= f.submit t("cancel"), class: "btn btn-danger btn-nice" %>
           <% end %>
         </li>
-      <% elsif appointment.cancel? %>
+      <% elsif appointment.canceled? %>
         <li><%= t "canceled" %></li>
       <% else %>
         <li>

@@ -125,13 +125,16 @@ en:
   signout: Sign out
   account: My account
   university: Student at Australian National University and the lead author of a paper published in Nature on Wednesday that may hold the answer. Mr. Jones and his colleagues developed a model that simulates what’s happening in our planet’s mantle beneat the crust that we live on, offering a window to the center of the.
-  gender: Gender
+  gender: "Gender:"
   male: Male
   female: Female
+  other: Other...
   select_your_service: Select your service
-  date_of_birth: Date of Birth
-  email: Email
-  phone: Phone
+  date_of_birth: "Date of Birth:"
+  email: "Email:"
+  phone: "Phone:"
+  start_date: "Start date:"
+  due_date: "Due date:"
   reservation_date: Reservation date
   address: Address
   status: Status
@@ -142,7 +145,7 @@ en:
   to_time: To time
   message: "Message:"
   message_here: Message here!
-  day: Day of appointment
+  day: "Day of appointment:"
   no_result: No result!
   search_result: Search result
   schedule: Doctor Schedules
@@ -266,3 +269,17 @@ en:
   cancel_email: You have recently created a request to schedule an appointment at the Medical Schedule website. For some reason, we were unable to accommodate your request. Please schedule an appointment at a different time or other doctor so we can serve you.
   type_message: Type message ...
   counselor: Counselor
+  card_number: "Card number"
+  appointment_history: Appointment history
+  appointment_detail: Appointment detail
+  m_canceled: Cancel
+  m_rejected: Reject
+  m_in_progress: In progress
+  m_finished: Finish
+  placeholder_modal: Update status
+  waiting: Waiting
+  accepted: Accepted
+  rejected: Rejected
+  canceled: Canceled
+  in_progress: In progress
+  finished: Finished

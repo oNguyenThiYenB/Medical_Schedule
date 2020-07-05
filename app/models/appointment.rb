@@ -1,12 +1,45 @@
 class Appointment < ApplicationRecord
-  APPOINTMENT_PARAMS = %i(phone_patient address_patient faculty_id doctor_id day shift_work_id insurance message status).freeze
+  APPOINTMENT_PARAMS = %i(phone_patient address_patient faculty_id doctor_id day shift_work_id have_insurance message status).freeze
 
-  enum status: {waiting: 0, accept: 1, cancel: 2}
+  include AASM
+  aasm(:status) do
+    state :waiting, initial: true
+    state :accepted
+    state :rejected
+    state :canceled
+    state :in_progress
+    state :finished
+
+    event :accept do
+      transitions from: [:waiting], to: :accepted
+    end
+    event :reject do
+      transitions from: [:waiting], to: :rejected
+    end
+    event :re_accept do
+      transitions from: [:accepted], to: :rejected
+    end
+    event :cancel do
+      transitions from: [:accepted], to: :canceled
+    end
+    event :in_progress do
+      transitions from: [:accepted], to: :in_progress
+    end
+    event :finish do
+      transitions from: [:in_progress], to: :finished
+    end
+    event :waiting do
+      transitions from: [:waiting], to: :canceled
+    end
+  end
+
+  enum status: {waiting: 0, accepted: 1, rejected: 2, canceled: 3, in_progress:4, finished:5}
 
   belongs_to :patient
   belongs_to :doctor
   belongs_to :faculty
   belongs_to :shift_work
+  has_one :medical_record, dependent: :destroy
 
   validates :phone_patient, presence: true,
     length: {maximum: Settings.max_phone}
@@ -30,7 +63,7 @@ class Appointment < ApplicationRecord
     where("doctor_id = ? and day = ?", doctor_id, day)
   end)
 
-  scope :by_not_confirmed, (lambda do |status|
+  scope :by_not_status, (lambda do |status|
     where("status not in (?)", status)
   end)
 end

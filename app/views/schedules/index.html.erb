@@ -1,5 +1,66 @@
 <%= provide :title, t("schedule") %>
-<h1 class="centered"><%= t "doctor_schedules" %></h1>
+<% content_for :modal do %>
+  <div id="fullCalModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div style="display: inline-block; text-align: center; width: 100%;">
+            <h4 id="modalTitle" class="modal-title"><%= t "appointment_detail" %></h4>
+            <h6 id="appointment_time"></h6>
+          </div>
+          <button type="button" class="close right close_modal" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+        </div>
+        <div id="modalBody" class="modal-body">
+          <table>
+            <tr>
+              <td id="patient_name" class="modal_th"><b><%= t("patient_name") %>:</b></td>
+              <td id="patient_name_cont"></td>
+            </tr>
+            <tr>
+              <td id="patient_birth" class="modal_th"><b><%= t("patient_birth") %>:</b></td>
+              <td id="patient_birth_cont"></td>
+            </tr>
+            <tr>
+              <td id="patient_gender" class="modal_th"><b><%= t("patient_gender") %>:</b></td>
+              <td id="patient_gender_cont"></td>
+            </tr>
+            <tr>
+              <td id="patient_msg" class="modal_th"><b><%= t("patient_msg") %>:</b></td>
+              <td id="patient_msg_cont"></td>
+            </tr>
+            <tr>
+              <td id="doctor_name" class="modal_th"><b><%= t("doctor_name") %>:</b></td>
+              <td id="doctor_name_cont"></td>
+            </tr>
+            <tr>
+              <td id="doctor_room" class="modal_th"><b><%= t("doctor_room") %>:</b></td>
+              <td id="doctor_room_cont"></td>
+            </tr>
+            <tr>
+              <td id="doctor_position" class="modal_th"><b><%= t("doctor_position") %>:</b></td>
+              <td id="doctor_position_cont"></td>
+            </tr>
+            <tr>
+              <td id="doctor_department" class="modal_th"><b><%= t("doctor_department") %>:</b></td>
+              <td id="doctor_department_cont"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <div id="lbl_modal"></div>
+          <div id="modal_form"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<h1 class="centered">
+  <% if current_user&.patient? %>
+    <%= t "appointment_history" %>
+  <% else %>
+    <%= t "doctor_schedules" %>
+  <% end %>
+</h1>
 <div class="time_table_area">
   <div class="container schedule_display">
     <div class="row">

@@ -62,8 +62,11 @@
               <li><%= link_to t("home"), home_path, data: {turbolinks: "false"} %></li>
               <li><%= link_to t("appointment"), "#", data: {turbolinks: "false"} %>
                 <ul>
-                  <% if can? :index, Appointment %>
-                    <li><%= link_to t("appointment_list"), appointments_path %></li>
+                  <% if current_user&.staff? || current_user&.admin? %>
+                    <li><%= link_to t("appointment_list"), appointments_path, data: {turbolinks: "false"} %></li>
+                  <% end %>
+                  <% if can? :read, Appointment %>
+                    <li><%= link_to t("appointment_history"), appointment_history_path, data: {turbolinks: "false"} %></li>
                   <% end %>
                   <% if can? :new, Appointment %>
                     <li><%= link_to t("new_appointment"), new_appointment_path, data: {turbolinks: "false"} %></li>
